@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GEEData", "GEEData\GEEData.csproj", "{80A6F894-07B8-4F45-A382-5966DD2F8DBC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GEEUI", "GEEUI\GEEUI.csproj", "{20E3F463-B91F-42E3-8A51-025D9AEDCBB4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{80A6F894-07B8-4F45-A382-5966DD2F8DBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80A6F894-07B8-4F45-A382-5966DD2F8DBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80A6F894-07B8-4F45-A382-5966DD2F8DBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20E3F463-B91F-42E3-8A51-025D9AEDCBB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20E3F463-B91F-42E3-8A51-025D9AEDCBB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20E3F463-B91F-42E3-8A51-025D9AEDCBB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20E3F463-B91F-42E3-8A51-025D9AEDCBB4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

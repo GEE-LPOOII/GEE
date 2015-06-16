@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = null;
+    @Styles.Render("~/Content/css")    
+    @Styles.Render("~/Content/bootstrap.css")
+    @Styles.Render("~/Scripts/jquery-1.10.2.js")
+    
+
+}
+<script>
+    function formatar(mascara, documento) {
+        var i = documento.value.length;
+        var saida = mascara.substring(0, 1);
+        var texto = mascara.substring(i)
+
+        if (texto.substring(0, 1) != saida) {
+            documento.value += texto.substring(0, 1);
+        }
+    }
+</script>
+
+
+<div class="content" aling="center">
+    <div class="span12">
+        <div class="info" >
+            <h1 class="text-center">
+                Eventos
+            </h1>
+        </div>
+        <p align="center">
+            <font size="+3" color="red" face="Comic Sans MS, cursive">
+
+                &nbsp;
+            </font>
+        </p>
+
+    </div>
+    <div class="row" align="center">
+        <table class="panel panel-info" >
+            <tbody>
+                <tr>
+                    <td width="256" height="218">
+                        <form class="form-group">
+                            <input type="text" onkeypress="formatar('###.###.###-##', this)"  placeholder="CPF" class="form-control" maxlength="14" required value="" />
+                            <br />
+                            <center><button type="submit" class="btn btn-success">Entrar</button></center>
+                        </form> 
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+    
+    
+</div>

@@ -13,6 +13,7 @@ namespace GEEData
         public DateTime data { get; set; }
         public string cidade { get; set; }
         public int qtd_horas { get; set; }
+        public int idPessoa { get; set; }
         public string descricao { get; set; }
     }
 }
