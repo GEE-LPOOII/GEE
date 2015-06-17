@@ -1,23 +1,16 @@
 ﻿using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace ConectaDAO
 {
     public class Connecta
     {
-        
-    
+  
       static StringBuilder StrConn = new StringBuilder();
       static MySqlConnection conn = new MySqlConnection();
       static MySqlCommand cmd = new MySqlCommand();
       static MySqlDataReader dr;
-     
-      
-       
+          
        public static void DBName (string pServer,int pPort,string pDB,string pUid,string pPwd)       
        {
            StrConn.Append("Server="+pServer+";");
@@ -40,7 +33,6 @@ namespace ConectaDAO
        }
        public static bool CommandPersist(MySqlCommand pCmd)
        {
-           
            pCmd.Connection = conn;
            pCmd.ExecuteNonQuery();
            return true;
