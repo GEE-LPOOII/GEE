@@ -9,10 +9,10 @@ namespace GEEData
    public class Pessoas
     {
         public int id { get; set; }
-        public int idPermissao { get; set; }
         public string nome { get; set; }
         public string telefone { get; set; }
         public string email { get; set; }
         public int cpf { get; set; }
+        public Permissoes permissao { get; set; }
     }
 }

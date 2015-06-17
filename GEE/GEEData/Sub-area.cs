@@ -10,5 +10,6 @@ namespace GEEData
     {
         public int id { get; set; }
         public string subArea { get; set; }
+        public Area area { get; set; }
     }
 }
