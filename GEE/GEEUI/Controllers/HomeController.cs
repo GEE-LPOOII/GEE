@@ -26,5 +26,9 @@ namespace GEEUI.Controllers
 
             return View();
         }
+        public ActionResult CadastrarPessoa (FormCollection form)
+        {
+            
+        }
     }
 }

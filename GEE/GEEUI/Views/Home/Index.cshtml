@@ -7,7 +7,7 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
 
-
+    
 }
 <script>
     function formatar(mascara, documento) {
@@ -54,7 +54,7 @@
             <tbody>
                 <tr>
                     <td width="256" height="218">
-                        <form class="form-group">
+                        <form class="form-group" >
                             <input type="text" onkeypress="formatar('###.###.###-##', this)"  placeholder="CPF" class="form-control" maxlength="14" required value="" />
                             <br />
                             <center><button type="submit" class="btn btn-success" >@Html.ActionLink("Entrar","ListaEventos","Home")</button></center>
@@ -88,27 +88,24 @@
             </div>
             <div class="modal-body">
                 <!-- Corpo do Cadastro-->
-                <form  class="panel-body" >
-                   <div class="col-xs-6">
-                       <input class="form-control" type="text" placeholder="Nome" />
-                       <br />
-
-                       <input class="form-control" type="tel" placeholder="Telefone" />
-                   </div>
+                <form class="panel-body"  name="formCadastrarPessoa" >
                     <div class="col-xs-6">
-                        <input class="form-control" type="text" placeholder="CPF" onkeypress="formatar('###.###.###-##', this)" />
+                        <input class="form-control" type="text" placeholder="Nome" name="NomeCadastrar"/>
                         <br />
-                        <input class="form-control" type="email" placeholder="E-mail" />
+
+                        <input class="form-control" type="tel" placeholder="Telefone" name="TelCadastras" />
                     </div>
-
-                </form>
-
-
-            </div>
+                    <div class="col-xs-6">
+                        <input class="form-control" type="text" placeholder="CPF" name="CPFCadastrar" onkeypress="formatar('###.###.###-##', this)" />
+                        <br />
+                        <input class="form-control" type="email" placeholder="E-mail" name="EmailCadastrar" />
+                    </div>
+</div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-success">@Html.ActionLink("Cadastrar","CadastrarAluno","Home") </button>
+                <button type="button" class="btn btn-success">@Html.ActionLink("Cadastrar","CadastrarPessoa","Home") </button>
             </div>
+            </form>
         </div>
     </div>
 </div>
