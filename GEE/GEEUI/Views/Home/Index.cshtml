@@ -23,12 +23,24 @@
 <div class="content" aling="center">
     <div class="span12">
         <div class="info" >
-            <h1 class="text-center">
-                Eventos
+            <h1 class="text-center" >
+                <p align="center">
+                    <font size="+5" color="red" face="Comic Sans MS, cursive">
+
+                        &nbsp;
+                    </font>
+                </p>
+                <p>
+                    <font size="28" color="gray" face="Book Antiqua">
+                         Gerenciador de Eventos
+                    </font>
+                   
+                </p>
+                
             </h1>
         </div>
         <p align="center">
-            <font size="+3" color="red" face="Comic Sans MS, cursive">
+            <font size="+4" color="red" face="Comic Sans MS, cursive">
 
                 &nbsp;
             </font>
@@ -43,12 +55,12 @@
                         <form class="form-group">
                             <input type="text" onkeypress="formatar('###.###.###-##', this)"  placeholder="CPF" class="form-control" maxlength="14" required value="" />
                             <br />
-                            <center><button type="submit" class="btn btn-success">Entrar</button></center>
+                            <center><button type="submit" class="btn btn-success">@Html.ActionLink("Entrar","ListaEventos","Home")</button></center>
                         </form> 
                     </td>    
                     <td width="256" height="218" align="center" valign="middle">                        
-                        <p>&nbsp;</p>
-                        <center><button  type="submit" class="btn btn-default">Cadastre-se</button></center>
+                        
+                        <center><button class="btn btn-default" >@Html.ActionLink("Cadastre-Se", "CreateAluno", "Home")</button></center>
 
                     </td>                
                 </tr>
