@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GEERepository
 {
-    class PessoasRepository
+   public class PessoasRepository
     {
     }
 }
