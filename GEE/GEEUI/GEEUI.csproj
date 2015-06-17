@@ -165,6 +165,16 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GEEData\GEEData.csproj">
+      <Project>{80a6f894-07b8-4f45-a382-5966dd2f8dbc}</Project>
+      <Name>GEEData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GEERepository\GEERepository.csproj">
+      <Project>{51f0b4a5-300b-4769-aa6e-e9db9796ce86}</Project>
+      <Name>GEERepository</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

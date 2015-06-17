@@ -13,6 +13,6 @@ namespace GEEData
         public string telefone { get; set; }
         public string email { get; set; }
         public int cpf { get; set; }
-        public Permissoes permissao { get; set; }
+        
     }
 }

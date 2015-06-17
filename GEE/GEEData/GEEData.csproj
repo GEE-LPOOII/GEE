@@ -47,7 +47,6 @@
   <ItemGroup>
     <Compile Include="Area.cs" />
     <Compile Include="Eventos.cs" />
-    <Compile Include="Permissoes.cs" />
     <Compile Include="Pessoas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sub-area.cs" />
