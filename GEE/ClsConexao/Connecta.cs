@@ -20,9 +20,9 @@ namespace ConectaDAO
            StrConn.Append("Pwd="+pPwd+";");
            StrConn.Append("Allow User Variables=True;");
        }
+
        public static bool Connect()
-       {
-           
+       { 
            if (conn.State == System.Data.ConnectionState.Closed)           
            {
                
@@ -31,12 +31,14 @@ namespace ConectaDAO
            }           
            return true;
        }
+
        public static bool CommandPersist(MySqlCommand pCmd)
        {
            pCmd.Connection = conn;
            pCmd.ExecuteNonQuery();
            return true;
        }
+
        public static MySqlDataReader Get(MySqlCommand cmd)
        {
            Connect();

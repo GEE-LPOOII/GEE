@@ -1,5 +1,4 @@
 ﻿using GEEData;
-using System;
 using System.Text;
 using MySql.Data.MySqlClient;
 using ConectaDAO;
