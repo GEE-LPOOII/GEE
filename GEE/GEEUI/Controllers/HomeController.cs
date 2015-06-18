@@ -1,4 +1,5 @@
-﻿using GEERepository;
+﻿using GEEData;
+using GEERepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,10 +32,27 @@ namespace GEEUI.Controllers
         }
         public ActionResult CadastrarPessoa (FormCollection form)
         {
-            PessoasRepository pessoas = new PessoasRepository();
+            PessoasRepository pessoasRepo = new PessoasRepository();
+            Pessoas pessoas = new Pessoas();
+
+            pessoas.nome = (string)form["NomeCadastrar"];
+            pessoas.telefone = (string)form["TelCadastras"];
+            pessoas.email = (string)form["EmailCadastrar"];
+            pessoas.cpf = (string)form["CPFCadastrar"];
+
+            if (pessoasRepo.Create(pessoas) == true) 
+            {
+                ViewBag.resposta = "Sucesso";
+            }
+            else 
+            {
+                ViewBag.resposta = "Falha";
+            }
+            return null;
             
 
-            return null;
+           
+            
         }
     }
 }
