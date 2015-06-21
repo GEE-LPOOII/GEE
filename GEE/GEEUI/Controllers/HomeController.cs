@@ -42,11 +42,11 @@ namespace GEEUI.Controllers
 
             if (pessoasRepo.Create(pessoas) == true) 
             {
-                ViewBag.resposta = "Sucesso";
+                ViewBag.resposta = true;
             }
             else 
             {
-                ViewBag.resposta = "Falha";
+                ViewBag.resposta = false;
             }
             return null;
             

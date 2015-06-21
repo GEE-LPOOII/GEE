@@ -22,8 +22,14 @@ namespace GEERepository
             cmd.Parameters.AddWithValue("@cpf", pPessoas.cpf);
 
             cmd.CommandText = sql.ToString();
-            Connecta.CommandPersist(cmd);
-            return true;
+            if (Connecta.CommandPersist(cmd)) 
+            {
+                return true;
+            }
+            else {
+                return false;
+            }
+            
             
         }
 
