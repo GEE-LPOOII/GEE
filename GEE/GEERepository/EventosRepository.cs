@@ -3,11 +3,90 @@ using System.Text;
 using MySql.Data.MySqlClient;
 using ConectaDAO;
 using System;
+using System.Collections.Generic;
 
 namespace GEERepository
 {
     public class EventosRepository
     {
+
+        public static Eventos GetOne(int pId)
+        {
+            StringBuilder sql = new StringBuilder();
+            Eventos evento = new Eventos();
+
+            sql.Append("SELECT e.*, p.nome as pessoa, s.nome as subarea, s.id_area ");
+            sql.Append("FROM eventos e ");
+            sql.Append("INNER JOIN pessoas p ");
+            sql.Append("ON e.id_pessoa=p.id ");
+            sql.Append("INNER JOIN subareas s ");
+            sql.Append("ON e.id_subarea=s.id ");
+            sql.Append("WHERE e.id=" + pId);
+
+            MySqlDataReader dr = Connecta.Get(sql.ToString());
+
+            while (dr.Read())
+            {
+                evento.id = (int)dr["id"];
+                evento.nome = (string)dr["nome"];
+                evento.descricao = (string)dr["descricao"];
+                evento.cidade = (string)dr["cidade"];
+                evento.qtd_horas = (int)dr["qtd_horas"];
+                evento.data = (DateTime)dr["data"];
+                evento.status = (int)dr["status"];
+                evento.id_pessoa = new Pessoas
+                {
+                    nome = (string)dr["pessoa"]
+                };
+                evento.id_subarea = new Subareas
+                {
+                    nome = (string)dr["subarea"],
+                    id_area = (Areas)dr["s.id_area"]
+                };
+            }
+            return evento;
+        }
+
+        public static List<Eventos> GetAll()
+        {
+            StringBuilder sql = new StringBuilder();
+            List<Eventos> eventos = new List<Eventos>();
+
+            sql.Append("SELECT e.*, p.nome as pessoa, s.nome as subarea, s.id_area ");
+            sql.Append("FROM eventos e ");
+            sql.Append("INNER JOIN pessoas p ");
+            sql.Append("ON e.id_pessoa=p.id ");
+            sql.Append("INNER JOIN subareas s ");
+            sql.Append("ON e.id_subarea=s.id ");
+            sql.Append("ORDER BY id DESC ");
+
+            MySqlDataReader dr = Connecta.Get(sql.ToString());
+
+            while (dr.Read())
+            {
+                eventos.Add(
+                    new Eventos
+                    {
+                        id = (int)dr["id"],
+                        nome = (string)dr["nome"],
+                        descricao = (string)dr["descricao"],
+                        cidade = (string)dr["cidade"],
+                        qtd_horas = (int)dr["qtd_horas"],
+                        data = (DateTime)dr["data"],
+                        status = (int)dr["status"],
+                        id_pessoa = new Pessoas
+                        {
+                            nome = (string)dr["pessoa"]
+                        },
+                        id_subarea = new Subareas
+                        {
+                            nome = (string)dr["subarea"],
+                            id_area = (Areas)dr["s.id_area"]
+                        },
+                    });
+            }
+            return eventos;
+        }
         
         public bool Create(Eventos pEventos)
         {
@@ -22,8 +101,8 @@ namespace GEERepository
             cmd.Parameters.AddWithValue("@cidade", pEventos.cidade);
             cmd.Parameters.AddWithValue("@qtd_horas", pEventos.qtd_horas);
             cmd.Parameters.AddWithValue("@data", Convert.ToDateTime(pEventos.data).ToString("yyyy/MM/dd"));
-            cmd.Parameters.AddWithValue("@id_pessoa", pEventos.pessoa);
-            cmd.Parameters.AddWithValue("@id_subarea", pEventos.subarea);
+            cmd.Parameters.AddWithValue("@id_pessoa", pEventos.id_pessoa);
+            cmd.Parameters.AddWithValue("@id_subarea", pEventos.id_subarea);
 
             cmd.CommandText = sql.ToString();
             if (Connecta.CommandPersist(cmd))
@@ -49,8 +128,8 @@ namespace GEERepository
             cmd.Parameters.AddWithValue("@cidade", pEventos.cidade);
             cmd.Parameters.AddWithValue("@qtd_horas", pEventos.qtd_horas);
             cmd.Parameters.AddWithValue("@data", Convert.ToDateTime(pEventos.data).ToString("yyyy/MM/dd"));
-            cmd.Parameters.AddWithValue("@id_pessoa", pEventos.pessoa);
-            cmd.Parameters.AddWithValue("@id_subarea", pEventos.subarea);
+            cmd.Parameters.AddWithValue("@id_pessoa", pEventos.id_pessoa);
+            cmd.Parameters.AddWithValue("@id_subarea", pEventos.id_subarea);
 
             cmd.CommandText = sql.ToString();
             if (Connecta.CommandPersist(cmd))
