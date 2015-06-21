@@ -1,11 +1,7 @@
 ﻿using ConectaDAO;
 using GEEData;
 using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace GEERepository
 {
@@ -20,7 +16,7 @@ namespace GEERepository
             sql.Append("VALUES(@nome, @id_area)");
 
             cmd.Parameters.AddWithValue("@nome", pSubarea.nome);
-            cmd.Parameters.AddWithValue("@telefone", pSubarea.id_area);
+            cmd.Parameters.AddWithValue("@id_area", pSubarea.id_area);
 
             cmd.CommandText = sql.ToString();
             if (Connecta.CommandPersist(cmd))
@@ -43,7 +39,7 @@ namespace GEERepository
             sql.Append("WHERE id=" + pSubarea.id);
 
             cmd.Parameters.AddWithValue("@nome", pSubarea.nome);
-            cmd.Parameters.AddWithValue("@telefone", pSubarea.id_area);
+            cmd.Parameters.AddWithValue("@id_area", pSubarea.id_area);
 
             cmd.CommandText = sql.ToString();
             if (Connecta.CommandPersist(cmd))

@@ -9,7 +9,7 @@ namespace GEERepository
     public class EventosRepository
     {
         
-        public void Create(Eventos pEventos)
+        public bool Create(Eventos pEventos)
         {
             StringBuilder sql = new StringBuilder();
             MySqlCommand cmd = new MySqlCommand();
@@ -26,10 +26,17 @@ namespace GEERepository
             cmd.Parameters.AddWithValue("@id_subarea", pEventos.subarea);
 
             cmd.CommandText = sql.ToString();
-            Connecta.CommandPersist(cmd);
+            if (Connecta.CommandPersist(cmd))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
-        public void Update(Eventos pEventos)
+        public bool Update(Eventos pEventos)
         {
             StringBuilder sql = new StringBuilder();
             MySqlCommand cmd = new MySqlCommand();
@@ -46,10 +53,17 @@ namespace GEERepository
             cmd.Parameters.AddWithValue("@id_subarea", pEventos.subarea);
 
             cmd.CommandText = sql.ToString();
-            Connecta.CommandPersist(cmd);
+            if (Connecta.CommandPersist(cmd))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
-        public void Delete(int pId)
+        public bool Delete(int pId)
         {
             StringBuilder sql = new StringBuilder();
             MySqlCommand cmd = new MySqlCommand();
@@ -58,7 +72,14 @@ namespace GEERepository
             sql.Append("WHERE id=" + pId);
 
             cmd.CommandText = sql.ToString();
-            Connecta.CommandPersist(cmd);
+            if (Connecta.CommandPersist(cmd))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
     }
