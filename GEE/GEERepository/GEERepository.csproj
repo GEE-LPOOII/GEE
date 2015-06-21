@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="AreasRepository.cs" />
     <Compile Include="EventosRepository.cs" />
+    <Compile Include="InscricoesRepository.cs" />
     <Compile Include="PessoasRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SubareasRepository.cs" />

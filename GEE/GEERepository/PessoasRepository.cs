@@ -34,7 +34,7 @@ namespace GEERepository
                           
         }
 
-        public void Update(Pessoas pPessoas)
+        public bool Update(Pessoas pPessoas)
         {
             StringBuilder sql = new StringBuilder();
             MySqlCommand cmd = new MySqlCommand();
@@ -48,10 +48,17 @@ namespace GEERepository
             cmd.Parameters.AddWithValue("@cpf", pPessoas.cpf);
 
             cmd.CommandText = sql.ToString();
-            Connecta.CommandPersist(cmd);
+            if (Connecta.CommandPersist(cmd))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
-        public void Delete(int pId)
+        public bool Delete(int pId)
         {
             StringBuilder sql = new StringBuilder();
             MySqlCommand cmd = new MySqlCommand();
@@ -60,7 +67,14 @@ namespace GEERepository
             sql.Append("WHERE id=" + pId);
 
             cmd.CommandText = sql.ToString();
-            Connecta.CommandPersist(cmd);
+            if (Connecta.CommandPersist(cmd))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
     }

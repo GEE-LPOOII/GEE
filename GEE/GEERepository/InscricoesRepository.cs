@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GEEData
+namespace GEERepository
 {
-   public class Areas
+    public class InscricoesRepository
     {
-        public int id { get; set; }
-        public string nome { get; set; }
+
     }
 }

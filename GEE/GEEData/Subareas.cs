@@ -9,7 +9,7 @@ namespace GEEData
    public class Subareas
     {
         public int id { get; set; }
-        public string subarea { get; set; }
-        public Areas area { get; set; }
+        public string nome { get; set; }
+        public Areas id_area { get; set; }
     }
 }
