@@ -6,10 +6,10 @@ namespace ConectaDAO
     public class Connecta
     {
   
-      static StringBuilder StrConn = new StringBuilder();
-      static MySqlConnection conn = new MySqlConnection();
-      static MySqlCommand cmd = new MySqlCommand();
-      static MySqlDataReader dr;
+      private static StringBuilder StrConn = new StringBuilder();
+      private static MySqlConnection conn = new MySqlConnection();
+      private static MySqlCommand cmd = new MySqlCommand();
+      private static MySqlDataReader dr;
           
        public static void DBName (string pServer,int pPort,string pDB,string pUid,string pPwd)       
        {

@@ -31,10 +31,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ConectaDAO">
-      <HintPath>..\..\..\..\Visual Studio 2013\Projects\ConexaoDBDAO.NET\ConectaDAO\bin\Debug\ConectaDAO.dll</HintPath>
+      <HintPath>..\..\..\..\..\Desktop\GEE\GEE\ClsConexao\bin\Debug\ConectaDAO.dll</HintPath>
     </Reference>
     <Reference Include="mysql.data">
-      <HintPath>..\..\..\..\Visual Studio 2013\Projects\TrabalhoG1\ConnContasLuz\bin\Debug\mysql.data.dll</HintPath>
+      <HintPath>..\..\..\..\..\Desktop\GEE\GEE\ClsConexao\bin\Debug\mysql.data.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -45,11 +45,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Area.cs" />
+    <Compile Include="Areas.cs" />
     <Compile Include="Eventos.cs" />
     <Compile Include="Pessoas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sub-area.cs" />
+    <Compile Include="Subareas.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

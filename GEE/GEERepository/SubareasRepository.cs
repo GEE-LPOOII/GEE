@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GEERepository
 {
-    class SubAreaRepository
+    class SubareasRepository
     {
     }
 }

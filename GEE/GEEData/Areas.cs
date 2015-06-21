@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GEERepository
+namespace GEEData
 {
-    class AreaRepository
+   public class Areas
     {
+        public int id { get; set; }
+        public string area { get; set; }
     }
 }

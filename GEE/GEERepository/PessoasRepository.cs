@@ -3,12 +3,13 @@ using System.Text;
 using MySql.Data.MySqlClient;
 using ConectaDAO;
 
+
 namespace GEERepository
 {
     public class PessoasRepository
     {
         
-        public void Create(Pessoas pPessoas)
+        public bool Create(Pessoas pPessoas)
         {
             StringBuilder sql = new StringBuilder();
             MySqlCommand cmd = new MySqlCommand();
@@ -22,9 +23,15 @@ namespace GEERepository
             cmd.Parameters.AddWithValue("@cpf", pPessoas.cpf);
 
             cmd.CommandText = sql.ToString();
-            Connecta.CommandPersist(cmd);
-            
-            
+            if(Connecta.CommandPersist(cmd))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+                          
         }
 
         public void Update(Pessoas pPessoas)

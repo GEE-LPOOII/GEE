@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace GEEData
 {
-   public class Area
+   public class Subareas
     {
         public int id { get; set; }
-        public string area { get; set; }
+        public string subarea { get; set; }
+        public Areas area { get; set; }
     }
 }

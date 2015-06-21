@@ -14,16 +14,16 @@ namespace GEERepository
             StringBuilder sql = new StringBuilder();
             MySqlCommand cmd = new MySqlCommand();
 
-            sql.Append("INSERT INTO eventos (nome, data_evento, cidade, qtd_horas, descricao, idpessoa, id_sub_area)");
-            sql.Append("VALUES(@nome, @data_evento, @cidade, @qtd_horas, @descricao, @idpessoa, @id_sub_area)");
+            sql.Append("INSERT INTO eventos (nome, descricao, cidade, qtd_horas, data, id_pessoa, id_subarea)");
+            sql.Append("VALUES(@nome, @descricao, @cidade, @qtd_horas, @data, @id_pessoa, @id_subarea)");
 
             cmd.Parameters.AddWithValue("@nome", pEventos.nome);
-            cmd.Parameters.AddWithValue("@data_evento", Convert.ToDateTime(pEventos.data).ToString("yyyy/MM/dd"));
+            cmd.Parameters.AddWithValue("@descricao", pEventos.descricao);
             cmd.Parameters.AddWithValue("@cidade", pEventos.cidade);
             cmd.Parameters.AddWithValue("@qtd_horas", pEventos.qtd_horas);
-            cmd.Parameters.AddWithValue("@descricao", pEventos.descricao);
-            cmd.Parameters.AddWithValue("@idpessoa", pEventos.pessoa);
-            cmd.Parameters.AddWithValue("@id_sub_area", pEventos.sub_area);
+            cmd.Parameters.AddWithValue("@data", Convert.ToDateTime(pEventos.data).ToString("yyyy/MM/dd"));
+            cmd.Parameters.AddWithValue("@id_pessoa", pEventos.pessoa);
+            cmd.Parameters.AddWithValue("@id_subarea", pEventos.subarea);
 
             cmd.CommandText = sql.ToString();
             Connecta.CommandPersist(cmd);
@@ -34,16 +34,16 @@ namespace GEERepository
             StringBuilder sql = new StringBuilder();
             MySqlCommand cmd = new MySqlCommand();
 
-            sql.Append("UPDATE pessoas SET nome=@nome, data_evento=@data_evento, cidade=@cidade, qtd_horas=@qtd_horas, descricao=@descricao, idpessoa=@idpessoa, id_sub_area=@id_sub_area");
+            sql.Append("UPDATE pessoas SET nome=@nome, descricao=@descricao, cidade=@cidade, qtd_horas=@qtd_horas, data=@data, id_pessoa=@id_pessoa, id_subarea=@id_subarea");
             sql.Append("WHERE id=" + pEventos.id);
 
             cmd.Parameters.AddWithValue("@nome", pEventos.nome);
-            cmd.Parameters.AddWithValue("@data_evento", Convert.ToDateTime(pEventos.data).ToString("yyyy/MM/dd"));
+            cmd.Parameters.AddWithValue("@descricao", pEventos.descricao);
             cmd.Parameters.AddWithValue("@cidade", pEventos.cidade);
             cmd.Parameters.AddWithValue("@qtd_horas", pEventos.qtd_horas);
-            cmd.Parameters.AddWithValue("@descricao", pEventos.descricao);
-            cmd.Parameters.AddWithValue("@idpessoa", pEventos.pessoa);
-            cmd.Parameters.AddWithValue("@id_sub_area", pEventos.sub_area);
+            cmd.Parameters.AddWithValue("@data", Convert.ToDateTime(pEventos.data).ToString("yyyy/MM/dd"));
+            cmd.Parameters.AddWithValue("@id_pessoa", pEventos.pessoa);
+            cmd.Parameters.AddWithValue("@id_subarea", pEventos.subarea);
 
             cmd.CommandText = sql.ToString();
             Connecta.CommandPersist(cmd);
