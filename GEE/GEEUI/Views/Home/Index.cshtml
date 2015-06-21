@@ -20,6 +20,20 @@
         }
     }
 </script>
+<div class="navbar-fixed-top navbar-default">
+    <div class="navbar-inner">
+        <div class="container">
+            <br />
+            <form name="LoginAdm" class="form-horizontal ">
+                <input class="navbar-collapse form-control-static" type="text" placeholder="CPF" name="CpfAdm" />
+                <input class="navbar-collapse form-control-static" type="password" placeholder="senha" name="SenhaAdm" />
+                <button class="btn-default btn">
+                    @Html.ActionLink("Logar", "LoginAdm", "Home")
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
 
 
 <div class="content" aling="center">

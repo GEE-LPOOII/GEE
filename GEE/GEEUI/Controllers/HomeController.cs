@@ -30,6 +30,7 @@ namespace GEEUI.Controllers
 
             return View();
         }
+        [HttpPost]
         public ActionResult CadastrarPessoa (FormCollection form)
         {
             PessoasRepository pessoasRepo = new PessoasRepository();
@@ -42,10 +43,12 @@ namespace GEEUI.Controllers
 
             pessoasRepo.Create(pessoas);
             ViewBag.resposta = true;
-            return null;
+            return null;           
             
-
-           
+        }
+        [HttpPost]
+        public ActionResult LoginAdm (FormCollection form)
+        {
             
         }
     }
