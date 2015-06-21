@@ -8,7 +8,7 @@ namespace GEERepository
     public class PessoasRepository
     {
         
-        public bool Create(Pessoas pPessoas)
+        public void Create(Pessoas pPessoas)
         {
             StringBuilder sql = new StringBuilder();
             MySqlCommand cmd = new MySqlCommand();
@@ -22,13 +22,7 @@ namespace GEERepository
             cmd.Parameters.AddWithValue("@cpf", pPessoas.cpf);
 
             cmd.CommandText = sql.ToString();
-            if (Connecta.CommandPersist(cmd)) 
-            {
-                return true;
-            }
-            else {
-                return false;
-            }
+            Connecta.CommandPersist(cmd);
             
             
         }

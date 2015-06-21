@@ -40,14 +40,8 @@ namespace GEEUI.Controllers
             pessoas.email = (string)form["EmailCadastrar"];
             pessoas.cpf = (string)form["CPFCadastrar"];
 
-            if (pessoasRepo.Create(pessoas) == true) 
-            {
-                ViewBag.resposta = true;
-            }
-            else 
-            {
-                ViewBag.resposta = false;
-            }
+            pessoasRepo.Create(pessoas);
+            ViewBag.resposta = true;
             return null;
             
 
