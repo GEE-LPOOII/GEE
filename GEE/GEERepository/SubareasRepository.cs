@@ -1,12 +1,68 @@
 ﻿using ConectaDAO;
 using GEEData;
 using MySql.Data.MySqlClient;
+using System.Collections.Generic;
 using System.Text;
 
 namespace GEERepository
 {
     public class SubareasRepository
     {
+
+        public static Subareas GetOne(int pId)
+        {
+            StringBuilder sql = new StringBuilder();
+            Subareas subarea = new Subareas();
+
+            sql.Append("SELECT s.*, a.nome as area ");
+            sql.Append("FROM subareas s ");
+            sql.Append("INNER JOIN areas a ");
+            sql.Append("ON s.id_area=a.id ");
+            sql.Append("WHERE s.id=" + pId);
+
+            MySqlDataReader dr = Connecta.Get(sql.ToString());
+
+            while (dr.Read())
+            {
+                subarea.id = (int)dr["id"];
+                subarea.nome = (string)dr["nome"];
+                subarea.id_area = new Areas
+                {
+                    nome = (string)dr["area"]
+                };
+            }
+            return subarea;
+        }
+
+        public static List<Subareas> GetAll()
+        {
+            StringBuilder sql = new StringBuilder();
+            List<Subareas> subareas = new List<Subareas>();
+
+            sql.Append("SELECT s.*, a.nome as area ");
+            sql.Append("FROM subareas s ");
+            sql.Append("INNER JOIN areas a ");
+            sql.Append("ON s.id_area=a.id ");
+            sql.Append("ORDER BY id DESC ");
+
+            MySqlDataReader dr = Connecta.Get(sql.ToString());
+
+            while (dr.Read())
+            {
+                subareas.Add(
+                    new Subareas
+                    {
+                        id = (int)dr["id"],
+                        nome = (string)dr["nome"],
+                        id_area = new Areas
+                        {
+                            nome = (string)dr["area"],
+                        },
+                    });
+            }
+            return subareas;
+        }
+        
         public bool Create(Subareas pSubarea)
         {
             StringBuilder sql = new StringBuilder();

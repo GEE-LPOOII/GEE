@@ -11,6 +11,50 @@ namespace GEERepository
 {
     public class AreasRepository
     {
+
+        public static Areas GetOne(int pId)
+        {
+            StringBuilder sql = new StringBuilder();
+            Areas area = new Areas();
+
+            sql.Append("SELECT * ");
+            sql.Append("FROM areas ");
+            sql.Append("WHERE id=" + pId);
+
+            MySqlDataReader dr = Connecta.Get(sql.ToString());
+
+            while (dr.Read())
+            {
+                area.id = (int)dr["id"];
+                area.nome = (string)dr["nome"];
+            }
+
+            return area;
+        }
+
+        public static List<Areas> GetAll()
+        {
+            StringBuilder sql = new StringBuilder();
+            List<Areas> areas = new List<Areas>();
+
+            sql.Append("SELECT * ");
+            sql.Append("FROM areas ");
+            sql.Append("ORDER BY id DESC ");
+
+            MySqlDataReader dr = Connecta.Get(sql.ToString());
+
+            while (dr.Read())
+            {
+                areas.Add(
+                    new Areas
+                    {
+                        id = (int)dr["id"],
+                        nome = (string)dr["nome"]
+                    });
+            }
+            return areas;
+        }
+        
         public bool Create(Areas pArea)
         {
             StringBuilder sql = new StringBuilder();

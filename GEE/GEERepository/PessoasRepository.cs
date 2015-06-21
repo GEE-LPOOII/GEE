@@ -2,13 +2,63 @@
 using System.Text;
 using MySql.Data.MySqlClient;
 using ConectaDAO;
+using System.Collections.Generic;
 
 
 namespace GEERepository
 {
     public class PessoasRepository
     {
-        
+
+        public static Pessoas GetOne(int pId)
+        {
+            StringBuilder sql = new StringBuilder();
+            Pessoas pessoa = new Pessoas();
+
+            sql.Append("SELECT * ");
+            sql.Append("FROM pessoas ");
+            sql.Append("WHERE id=" + pId);
+
+            MySqlDataReader dr = Connecta.Get(sql.ToString());
+
+            while (dr.Read())
+            {
+                pessoa.id = (int)dr["id"];
+                pessoa.nome = (string)dr["nome"];
+                pessoa.telefone = (string)dr["telefone"];
+                pessoa.email = (string)dr["email"];
+                pessoa.cpf = (string)dr["cpf"];
+            }
+
+            return pessoa;
+        }
+
+        public static List<Pessoas> GetAll()
+        {
+            StringBuilder sql = new StringBuilder();
+            List<Pessoas> pessoas = new List<Pessoas>();
+
+            sql.Append("SELECT * ");
+            sql.Append("FROM pessoas ");
+            sql.Append("ORDER BY id DESC ");
+
+            MySqlDataReader dr = Connecta.Get(sql.ToString());
+
+            while (dr.Read())
+            {
+                pessoas.Add(
+                    new Pessoas
+                    {
+                        id = (int)dr["id"],
+                        nome = (string)dr["nome"],
+                        telefone = (string)dr["telefone"],
+                        email = (string)dr["email"],
+                        cpf = (string)dr["cpf"]
+                    });
+            }
+            return pessoas;
+        }
+
         public bool Create(Pessoas pPessoas)
         {
             StringBuilder sql = new StringBuilder();
