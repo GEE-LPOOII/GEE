@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adms.cs" />
     <Compile Include="Areas.cs" />
     <Compile Include="Eventos.cs" />
     <Compile Include="Inscricoes.cs" />

@@ -12,6 +12,7 @@ namespace GEEUI.Controllers
 {
     public class HomeController : Controller
     {
+    
         public ActionResult Index()
         {
             return View();
@@ -30,7 +31,7 @@ namespace GEEUI.Controllers
 
             return View();
         }
-        [HttpPost]
+       
         public ActionResult CadastrarPessoa (FormCollection form)
         {
             PessoasRepository pessoasRepo = new PessoasRepository();
@@ -54,8 +55,31 @@ namespace GEEUI.Controllers
         }
         [HttpPost]
         public ActionResult LoginAdm (FormCollection form)
+       {
+           
+            Adms adm = new Adms();
+
+
+           
+            adm.cpf = (string)form["CpfAdm"];
+            adm.senha = (string)form["SenhaAdm"];
+
+            if (adm.cpf.Equals("01245678912") && adm.senha.Equals("12345")) 
+            {
+
+                return View();
+            }
+            else 
+            {
+               return RedirectToAction("index");
+            }
+          
+        }
+        public ActionResult ListaEventos (FormCollection form)
         {
+
             return null;
         }
+        
     }
 }

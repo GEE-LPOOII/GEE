@@ -24,11 +24,11 @@
     <div class="navbar-inner">
         <div class="container">
             <br />
-            <form name="LoginAdm" class="form-horizontal ">
-                <input class="navbar-collapse form-control-static" type="text" placeholder="CPF" name="CpfAdm" />
-                <input class="navbar-collapse form-control-static" type="password" placeholder="senha" name="SenhaAdm" />
-                <button class="btn-default btn">
-                    @Html.ActionLink("Logar", "LoginAdm", "Home")
+            <form name="LoginAdm" class="form-horizontal " method="post" action="LoginAdm">
+                <input class="navbar-collapse form-control-static" type="text" placeholder="CPF" name="CpfAdm" onkeypress="formatar('###.###.###-##', this)" maxlength="14" required />
+                <input class="navbar-collapse form-control-static" type="password" placeholder="senha" name="SenhaAdm" required />
+                <button class="btn-default btn" type="submit"  >
+                  Entrar
                 </button>
             </form>
         </div>
@@ -68,10 +68,10 @@
             <tbody>
                 <tr>
                     <td width="256" height="218">
-                        <form class="form-group" >
-                            <input type="text" onkeypress="formatar('###.###.###-##', this)"  placeholder="CPF" class="form-control" maxlength="14" required value="" />
+                        <form class="form-group" method="post" action="ListaEventos">
+                            <input type="text" onkeypress="formatar('###.###.###-##', this)" placeholder="CPF" class="form-control" maxlength="14" required value="" />
                             <br />
-                            <center><button type="submit" class="btn btn-success" >@Html.ActionLink("Entrar","ListaEventos","Home")</button></center>
+                            <center><button type="submit" class="btn btn-success">Entrar</button></center>
                         </form> 
                     </td>    
                     <td width="256" height="218" align="center" valign="middle">                        
@@ -102,22 +102,22 @@
             </div>
             <div class="modal-body">
                 <!-- Corpo do Cadastro-->
-                <form class="panel-body"  name="formCadastrarPessoa" >
+                <form class="panel-body" name="formCadastrarPessoa" method="post" action="CadastrarPessoa">
                     <div class="col-xs-6">
-                        <input class="form-control" type="text" placeholder="Nome" name="NomeCadastrar"/>
+                        <input class="form-control" type="text" placeholder="Nome" name="NomeCadastrar" />
                         <br />
 
                         <input class="form-control" type="tel" placeholder="Telefone" name="TelCadastras" />
                     </div>
                     <div class="col-xs-6">
-                        <input class="form-control" type="text" placeholder="CPF" name="CPFCadastrar" onkeypress="formatar('###.###.###-##', this)" />
+                        <input class="form-control" type="text" placeholder="CPF" name="CPFCadastrar" maxlength="14" onkeypress="formatar('###.###.###-##', this)" />
                         <br />
                         <input class="form-control" type="email" placeholder="E-mail" name="EmailCadastrar" />
                     </div>
 </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-success">@Html.ActionLink("Cadastrar","CadastrarPessoa","Home") </button>
+                <button type="button" class="btn btn-success">Cadastrar </button>
             </div>
             </form>
         </div>

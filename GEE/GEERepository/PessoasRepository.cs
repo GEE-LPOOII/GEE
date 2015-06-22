@@ -10,14 +10,14 @@ namespace GEERepository
     public class PessoasRepository
     {
 
-        public static Pessoas GetOne(int pId)
+        public static Pessoas GetOne(string pCpf)
         {
             StringBuilder sql = new StringBuilder();
             Pessoas pessoa = new Pessoas();
 
             sql.Append("SELECT * ");
             sql.Append("FROM pessoas ");
-            sql.Append("WHERE id=" + pId);
+            sql.Append("WHERE cpf=" + pCpf);
             MySqlCommand cmd = new MySqlCommand();
             cmd.CommandText = sql.ToString();
 
