@@ -31,7 +31,7 @@ namespace GEEUI.Controllers
 
             return View();
         }
-       
+
         public ActionResult CadastrarPessoa (FormCollection form)
         {
             PessoasRepository pessoasRepo = new PessoasRepository();
@@ -78,7 +78,17 @@ namespace GEEUI.Controllers
         public ActionResult ListaEventos (FormCollection form)
         {
 
-            return null;
+            PessoasRepository pessoasRepo = new PessoasRepository();
+            Pessoas pessoas = new Pessoas();
+
+            pessoas.cpf = (string)form["CpfLogin"];
+            Pessoas pessoasR = new Pessoas();
+            pessoasR = PessoasRepository.GetOne(pessoas.cpf);
+            ViewBag.nome = pessoasR.nome;
+            var a = PessoasRepository.GetAll();
+            return View(a);
+
+
         }
         
     }
