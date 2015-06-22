@@ -36,7 +36,7 @@
     </Reference>
     <Reference Include="mysql.data, Version=6.3.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\ClsConexao\bin\Debug\mysql.data.dll</HintPath>
+      <HintPath>..\..\..\..\Visual Studio 2013\Projects\TrabalhoG1\ConnContasLuz\bin\Debug\mysql.data.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

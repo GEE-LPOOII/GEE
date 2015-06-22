@@ -18,8 +18,11 @@ namespace GEERepository
             sql.Append("SELECT * ");
             sql.Append("FROM pessoas ");
             sql.Append("WHERE id=" + pId);
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.CommandText = sql.ToString();
 
-            MySqlDataReader dr = Connecta.Get(sql.ToString());
+           
+            MySqlDataReader dr = Connecta.Get(cmd);
 
             while (dr.Read())
             {
@@ -41,8 +44,11 @@ namespace GEERepository
             sql.Append("SELECT * ");
             sql.Append("FROM pessoas ");
             sql.Append("ORDER BY id DESC ");
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.CommandText = sql.ToString();
 
-            MySqlDataReader dr = Connecta.Get(sql.ToString());
+
+            MySqlDataReader dr = Connecta.Get(cmd);
 
             while (dr.Read())
             {

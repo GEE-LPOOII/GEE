@@ -23,7 +23,11 @@ namespace GEERepository
             sql.Append("ON e.id_subarea=s.id ");
             sql.Append("WHERE e.id=" + pId);
 
-            MySqlDataReader dr = Connecta.Get(sql.ToString());
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.CommandText = sql.ToString();
+
+
+            MySqlDataReader dr = Connecta.Get(cmd);
 
             while (dr.Read())
             {
@@ -60,7 +64,11 @@ namespace GEERepository
             sql.Append("ON e.id_subarea=s.id ");
             sql.Append("ORDER BY id DESC ");
 
-            MySqlDataReader dr = Connecta.Get(sql.ToString());
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.CommandText = sql.ToString();
+
+
+            MySqlDataReader dr = Connecta.Get(cmd);
 
             while (dr.Read())
             {

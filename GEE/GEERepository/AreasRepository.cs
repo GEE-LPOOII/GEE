@@ -21,7 +21,11 @@ namespace GEERepository
             sql.Append("FROM areas ");
             sql.Append("WHERE id=" + pId);
 
-            MySqlDataReader dr = Connecta.Get(sql.ToString());
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.CommandText = sql.ToString();
+
+
+            MySqlDataReader dr = Connecta.Get(cmd);
 
             while (dr.Read())
             {
@@ -41,8 +45,11 @@ namespace GEERepository
             sql.Append("FROM areas ");
             sql.Append("ORDER BY id DESC ");
 
-            MySqlDataReader dr = Connecta.Get(sql.ToString());
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.CommandText = sql.ToString();
 
+
+            MySqlDataReader dr = Connecta.Get(cmd);
             while (dr.Read())
             {
                 areas.Add(

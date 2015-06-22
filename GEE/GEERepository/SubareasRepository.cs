@@ -19,8 +19,11 @@ namespace GEERepository
             sql.Append("INNER JOIN areas a ");
             sql.Append("ON s.id_area=a.id ");
             sql.Append("WHERE s.id=" + pId);
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.CommandText = sql.ToString();
 
-            MySqlDataReader dr = Connecta.Get(sql.ToString());
+
+            MySqlDataReader dr = Connecta.Get(cmd);
 
             while (dr.Read())
             {
@@ -45,7 +48,11 @@ namespace GEERepository
             sql.Append("ON s.id_area=a.id ");
             sql.Append("ORDER BY id DESC ");
 
-            MySqlDataReader dr = Connecta.Get(sql.ToString());
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.CommandText = sql.ToString();
+
+
+            MySqlDataReader dr = Connecta.Get(cmd);
 
             while (dr.Read())
             {
