@@ -81,19 +81,44 @@ namespace GEEUI.Controllers
             PessoasRepository pessoasRepo = new PessoasRepository();
             Pessoas pessoas = new Pessoas();
 
-            pessoas.cpf = (string)form["CpfLogin"];
-            Pessoas pessoasR = new Pessoas();
-            pessoasR = PessoasRepository.GetOne(pessoas.cpf);
-            ViewBag.nome = pessoasR.nome;
-            var a = PessoasRepository.GetAll();
-            return View(a);
+            if (form["CpfLogin"].ToString() == null)
+            {
+                var a = PessoasRepository.GetAll();
+                return View(a);
+            }
+            else {
+                pessoas.cpf = (string)form["CpfLogin"];
+                Pessoas pessoasR = new Pessoas();
+                pessoasR = PessoasRepository.GetOne(pessoas.cpf);
+                ViewBag.nome = pessoasR.nome;
+                var a = PessoasRepository.GetAll();
+                return View(a);
+            }
+           
 
 
         }
-        [HttpPost]
-        public ActionResult Inscrever(int idEvento)
+        [HttpGet]
+        public ActionResult CreateEvento()
         {
-            return null;
+            return View();
+        }
+        [HttpPost]
+
+        public ActionResult CreateEvento(FormCollection form)
+        {
+            Eventos eventos = new Eventos();
+            EventosRepository eventosRepo = new EventosRepository();
+
+            eventos.nome = (string)form["NomeEvento"];
+            eventos.cidade = (string)form["CidadeEvento"];
+            eventos.data = DateTime.Parse(form["DataEvento"]);
+            eventos.qtd_horas = Int32.Parse(form["Qtd_horasEvento"]);
+            eventos.descricao = (string)form["DescEvento"];
+
+            eventosRepo.Create(eventos);
+
+            return RedirectToAction("ListaEventos");
         }
         [HttpPost]
         public ActionResult DetailEvent (int idEvento)
