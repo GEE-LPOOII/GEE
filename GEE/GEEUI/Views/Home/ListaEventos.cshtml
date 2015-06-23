@@ -30,7 +30,14 @@
                     <td>@e.nome</td>
                     <td>@e.qtd_horas</td>
                     <td>@e.status</td>
-                    <td><button class="btn btn-info" >@Html.ActionLink("Inscrever-se", "DetailEvent", new { id = e.id })</button></td>
+                   @if (@e.status == 1)
+                   {
+                    <td><button class="btn btn-success">@Html.ActionLink("Inscrever-se", "DetailEvent", new { id = e.id })</button></td>
+                   }
+                   else
+                   {
+                    <td><button class="btn btn-warning disabled">Increver-se</button></td>
+                   }
                 </tr>
             }
         </table> 
@@ -39,4 +46,5 @@
     <br />
     <button class="btn btn-default" >@Html.ActionLink("Novo Evento","CreateEvento","Home")</button>
 </body>
+
 </html>

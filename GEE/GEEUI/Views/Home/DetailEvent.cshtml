@@ -1,0 +1,44 @@
+﻿@model IEnumerable<GEEData.Eventos>
+@{
+    Layout = null;
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/bootstrap.css")
+    @Styles.Render("~/Scripts/jquery-1.10.2.js")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DetailEvent</title>
+</head>
+<body>
+    <div> 
+        <center>
+            <div class="panel panel-default">
+                <div class="panel-heading">Detalhes Evento</div>
+                <div class="panel-body">
+                    @foreach (var e in Model)
+                    {
+                        <center><h4>@e.nome</h4></center>
+                        <br />
+                        <br />
+                            <div class="row">
+                                <div class="col-md-4">Quantida de Horas:@e.qtd_horas</div>
+                                <div class="col-md-4">Cidade:@e.cidade</div>
+                                <div class="col-md-4">Data:@e.data</div>                                
+                            </div>
+                        <textarea class="form-control" rows="3">@e.descricao</textarea>
+
+
+
+                    }
+                </div>
+            </div>
+        </center>
+    </div>
+</body>
+</html>

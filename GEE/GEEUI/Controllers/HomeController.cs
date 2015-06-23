@@ -99,8 +99,8 @@ namespace GEEUI.Controllers
         public ActionResult DetailEvent (int idEvento)
         {
             
-            EventosRepository.GetOne(idEvento);
-            return null;
+           var a = EventosRepository.GetOne(idEvento);
+           return View(a);
         }
         
     }
