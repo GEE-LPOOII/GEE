@@ -90,6 +90,18 @@ namespace GEEUI.Controllers
 
 
         }
+        [HttpPost]
+        public ActionResult Inscrever(int idEvento)
+        {
+            return null;
+        }
+        [HttpPost]
+        public ActionResult DetailEvent (int idEvento)
+        {
+            
+            EventosRepository.GetOne(idEvento);
+            return null;
+        }
         
     }
 }

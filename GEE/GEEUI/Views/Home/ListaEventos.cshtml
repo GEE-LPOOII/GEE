@@ -22,8 +22,21 @@
                 <th>Nome</th>
                 <th>Quantidade De Horas</th>
                 <th>Status</th>
+                <th>Detalhes</th>
             </tr>
+            @foreach (var e in Model)
+            {
+                <tr>
+                    <td>@e.nome</td>
+                    <td>@e.qtd_horas</td>
+                    <td>@e.status</td>
+                    <td><button class="btn btn-info" >@Html.ActionLink("Inscrever-se", "DetailEvent", new { id = e.id })</button></td>
+                </tr>
+            }
         </table> 
     </div>
+    <br />
+    <br />
+    <button class="btn btn-default" >@Html.ActionLink("Novo Evento","CreateEvento","Home")</button>
 </body>
 </html>
