@@ -18,19 +18,7 @@ namespace GEEUI.Controllers
             return View();
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
+       
 
         public ActionResult CadastrarPessoa (FormCollection form)
         {
@@ -63,6 +51,9 @@ namespace GEEUI.Controllers
            
             adm.cpf = (string)form["CpfAdm"];
             adm.senha = (string)form["SenhaAdm"];
+
+            adm.cpf.Replace(".", "");
+            adm.senha.Replace("-", "");
 
             if (adm.cpf.Equals("01245678912") && adm.senha.Equals("12345")) 
             {
