@@ -95,6 +95,98 @@ namespace GEERepository
             }
             return eventos;
         }
+
+        public static List<Eventos> GetEventosPendentes()
+        {
+            StringBuilder sql = new StringBuilder();
+            List<Eventos> eventos = new List<Eventos>();
+
+            sql.Append("SELECT e.*, p.nome as pessoa, s.nome as subarea, s.id_area ");
+            sql.Append("FROM eventos e ");
+            sql.Append("INNER JOIN pessoas p ");
+            sql.Append("ON e.id_pessoa=p.id ");
+            sql.Append("INNER JOIN subareas s ");
+            sql.Append("ON e.id_subarea=s.id ");
+            sql.Append("WHERE e.status=0 ");
+            sql.Append("ORDER BY id DESC ");
+
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.CommandText = sql.ToString();
+
+
+            MySqlDataReader dr = Connecta.Get(cmd);
+
+            while (dr.Read())
+            {
+                eventos.Add(
+                    new Eventos
+                    {
+                        id = (int)dr["id"],
+                        nome = (string)dr["nome"],
+                        descricao = (string)dr["descricao"],
+                        cidade = (string)dr["cidade"],
+                        qtd_horas = (int)dr["qtd_horas"],
+                        data = (DateTime)dr["data"],
+                        status = (int)dr["status"],
+                        id_pessoa = new Pessoas
+                        {
+                            nome = (string)dr["pessoa"]
+                        },
+                        id_subarea = new Subareas
+                        {
+                            nome = (string)dr["subarea"],
+                            id_area = (Areas)dr["s.id_area"]
+                        },
+                    });
+            }
+            return eventos;
+        }
+
+        public static List<Eventos> GetEventosAprovados()
+        {
+            StringBuilder sql = new StringBuilder();
+            List<Eventos> eventos = new List<Eventos>();
+
+            sql.Append("SELECT e.*, p.nome as pessoa, s.nome as subarea, s.id_area ");
+            sql.Append("FROM eventos e ");
+            sql.Append("INNER JOIN pessoas p ");
+            sql.Append("ON e.id_pessoa=p.id ");
+            sql.Append("INNER JOIN subareas s ");
+            sql.Append("ON e.id_subarea=s.id ");
+            sql.Append("WHERE e.status=1 ");
+            sql.Append("ORDER BY id DESC ");
+
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.CommandText = sql.ToString();
+
+
+            MySqlDataReader dr = Connecta.Get(cmd);
+
+            while (dr.Read())
+            {
+                eventos.Add(
+                    new Eventos
+                    {
+                        id = (int)dr["id"],
+                        nome = (string)dr["nome"],
+                        descricao = (string)dr["descricao"],
+                        cidade = (string)dr["cidade"],
+                        qtd_horas = (int)dr["qtd_horas"],
+                        data = (DateTime)dr["data"],
+                        status = (int)dr["status"],
+                        id_pessoa = new Pessoas
+                        {
+                            nome = (string)dr["pessoa"]
+                        },
+                        id_subarea = new Subareas
+                        {
+                            nome = (string)dr["subarea"],
+                            id_area = (Areas)dr["s.id_area"]
+                        },
+                    });
+            }
+            return eventos;
+        }
         
         public bool Create(Eventos pEventos)
         {
