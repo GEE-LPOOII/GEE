@@ -39,7 +39,7 @@ namespace GEEUI.Controllers
             {
                 @ViewBag.resposta = false;
             }
-            return null;
+            return RedirectToAction("Index");
             
         }
         [HttpPost]
@@ -53,7 +53,9 @@ namespace GEEUI.Controllers
            
             adm.cpf = (string)form["CpfAdm"];
             adm.senha = (string)form["SenhaAdm"];
-
+            adm.cpf = adm.cpf.Replace(".", "");
+            adm.cpf = adm.cpf.Replace("-", "");
+            
             if (AdmRepository.Login(adm.cpf, adm.senha) == true)
             {
                 return View();
@@ -73,8 +75,8 @@ namespace GEEUI.Controllers
 
             PessoasRepository pessoasRepo = new PessoasRepository();
             Pessoas pessoas = new Pessoas();
-
-            if (form["CpfLogin"].ToString() == null)
+           
+            if (form["CpfLogin"].ToString() == "")
             {
                 var a = PessoasRepository.GetAll();
                 return View(a);
@@ -82,6 +84,8 @@ namespace GEEUI.Controllers
             }
             else {
                 pessoas.cpf = (string)form["CpfLogin"];
+                pessoas.cpf = pessoas.cpf.Replace(".", "");
+                pessoas.cpf =pessoas.cpf.Replace("-", "");
                 Pessoas pessoasR = new Pessoas();
                 pessoasR = PessoasRepository.GetOne(pessoas.cpf);
                 ViewBag.nome = pessoasR.nome;

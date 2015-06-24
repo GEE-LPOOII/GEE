@@ -88,7 +88,7 @@ namespace GEERepository
 
              sql.Append("SELECT * ");
              sql.Append("FROM administrador ");
-             sql.Append("WHERE cpf=" + cpf+ "and senha=" +senha);
+             sql.Append("WHERE cpf=" + cpf+ " and senha=" +senha);
              MySqlCommand cmd = new MySqlCommand();
              cmd.CommandText = sql.ToString();
 
