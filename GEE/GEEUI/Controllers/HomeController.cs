@@ -53,7 +53,15 @@ namespace GEEUI.Controllers
             adm.cpf = (string)form["CpfAdm"];
             adm.senha = (string)form["SenhaAdm"];
 
-            admRepo.
+            if (AdmRepository.Login(adm.cpf, adm.senha) == true)
+            {
+                return View();
+                //view dos menus
+            }
+            else 
+            {
+                return Redirect("index");
+            }
 
           
           
