@@ -76,6 +76,7 @@ namespace GEEUI.Controllers
             {
                 var a = PessoasRepository.GetAll();
                 return View(a);
+                //View Usuario comum
             }
             else {
                 pessoas.cpf = (string)form["CpfLogin"];
@@ -84,6 +85,7 @@ namespace GEEUI.Controllers
                 ViewBag.nome = pessoasR.nome;
                 var a = PessoasRepository.GetAll();
                 return View(a);
+                //View Usuario comum
             }
            
 

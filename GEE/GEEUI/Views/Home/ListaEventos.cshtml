@@ -6,6 +6,7 @@
     @Styles.Render("~/Scripts/jquery-1.10.2.js")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    //View de usuario comum
 }
 
 <!DOCTYPE html>
@@ -17,7 +18,7 @@
     <p class="navbar-text navbar-fixed-top">Logado Como:@ViewBag.nome</p>
 </head>
 <body>
-    <div> 
+    <div>
         <table class="table table-hover">
             <tr>
                 <th>Nome</th>
@@ -31,21 +32,26 @@
                     <td>@e.nome</td>
                     <td>@e.qtd_horas</td>
                     <td>@e.status</td>
-                   @if (@e.status == 1)
-                   {
-                    <td><button class="btn btn-success">@Html.ActionLink("Inscrever-se", "DetailEvent", new { id = e.id })</button></td>
-                   }
-                   else
-                   {
-                    <td><button class="btn btn-warning disabled">Increver-se</button></td>
-                   }
+                    @if (@e.status == 1)
+                    {
+                        <td><button class="btn btn-success">@Html.ActionLink("Detalhes", "DetailEvent", new { id = e.id })</button></td>
+                    }
+                    else
+                    {
+                        <td><button class="btn btn-warning disabled">Increver-se</button></td>
+                    }
+                    <td><button>@Html.ActionLink("Inscrever-se", "SubEvento", new { id = e.id_pessoa })</button></td>
                 </tr>
             }
-        </table> 
+        </table>
     </div>
     <br />
     <br />
-    <button class="btn btn-default" >@Html.ActionLink("Novo Evento","CreateEvento","Home")</button>
+    <br />
+    <div>
+        @Html.Partial("EventosSubs");
+    </div>
+
 </body>
 
 

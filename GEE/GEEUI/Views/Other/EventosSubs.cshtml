@@ -1,0 +1,26 @@
+﻿@model IEnumerable<GEEData.Eventos>
+@{
+    Layout = null;
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/bootstrap.css")
+    @Styles.Render("~/Scripts/jquery-1.10.2.js")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+}
+
+<!DOCTYPE html>
+
+<table class="table table-hover table-responsive">
+    <tr>
+        <th>Nome</th>
+        <th>Data</th>
+    </tr>
+    @foreach (var eventos in Model)
+    {
+        <tr>
+            <td>@eventos.nome</td>
+            <td>@eventos.data</td>
+            <td<button class="btn btn-success disabled">Certificado</button>></td>
+        </tr>
+    }
+</table>

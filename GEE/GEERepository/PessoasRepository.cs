@@ -134,5 +134,13 @@ namespace GEERepository
             }
         }
 
+        public void Subscribe (int pId)
+        {
+            StringBuilder sql = new StringBuilder();
+            MySqlCommand cmd = new MySqlCommand();
+
+           //Inscrever-se
+        }
+
     }
 }
