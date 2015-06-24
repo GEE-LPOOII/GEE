@@ -75,8 +75,8 @@ namespace GEEUI.Controllers
 
             PessoasRepository pessoasRepo = new PessoasRepository();
             Pessoas pessoas = new Pessoas();
-           
-            if (form["CpfLogin"].ToString() == "")
+           var cpf = (string)form["CpfLogin"];
+            if (cpf == "")
             {
                 var a = PessoasRepository.GetAll();
                 return View(a);
@@ -89,7 +89,7 @@ namespace GEEUI.Controllers
                 Pessoas pessoasR = new Pessoas();
                 pessoasR = PessoasRepository.GetOne(pessoas.cpf);
                 ViewBag.nome = pessoasR.nome;
-                var a = PessoasRepository.GetAll();
+                var a = EventosRepository.GetAll();
                 return View(a);
                 //View Usuario comum
             }

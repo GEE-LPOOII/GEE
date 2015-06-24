@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<GEEData.Eventos>
+         
 @{
     Layout = null;
     @Styles.Render("~/Content/css")
@@ -18,38 +19,41 @@
     <p class="navbar-text navbar-fixed-top">Logado Como:@ViewBag.nome</p>
 </head>
 <body>
-    <div>
-        <table class="table table-hover">
-            <tr>
-                <th>Nome</th>
-                <th>Quantidade De Horas</th>
-                <th>Status</th>
-                <th>Detalhes</th>
-            </tr>
-            @foreach (var e in Model)
-            {
+    <br />
+    <div class="col-md-6 col-md-offset-3">
+        <center>
+            <table class="table table-hover">
                 <tr>
-                    <td>@e.nome</td>
-                    <td>@e.qtd_horas</td>
-                    <td>@e.status</td>
-                    @if (@e.status == 1)
-                    {
-                        <td><button class="btn btn-success">@Html.ActionLink("Detalhes", "DetailEvent", new { id = e.id })</button></td>
-                    }
-                    else
-                    {
-                        <td><button class="btn btn-warning disabled">Increver-se</button></td>
-                    }
-                    <td><button>@Html.ActionLink("Inscrever-se", "SubEvento", new { id = e.id_pessoa })</button></td>
+                    <th>Nome</th>
+                    <th>Quantidade De Horas</th>
+                    <th>Status</th>
+                    <th>Detalhes</th>
                 </tr>
-            }
-        </table>
+                @foreach (var e in Model)
+                {
+                    <tr>
+                        <td>@e.nome</td>
+                        <td>@e.qtd_horas</td>
+                        <td>@e.status</td>
+                        @if (@e.status == 1)
+                        {
+                            <td><button class="btn btn-success">@Html.ActionLink("Detalhes", "DetailEvent", new { id = e.id })</button></td>
+                        }
+                        else
+                        {
+                            <td><button class="btn btn-warning disabled">Increver-se</button></td>
+                        }
+                        <td><button>@Html.ActionLink("Inscrever-se", "SubEvento", new { id = e.id_pessoa })</button></td>
+                    </tr>
+                }
+            </table>
+        </center>
     </div>
     <br />
     <br />
     <br />
     <div>
-        @Html.Partial("EventosSubs");
+      <!---->  
     </div>
 
 </body>

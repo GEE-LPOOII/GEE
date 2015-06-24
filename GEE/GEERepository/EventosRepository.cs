@@ -56,13 +56,8 @@ namespace GEERepository
             StringBuilder sql = new StringBuilder();
             List<Eventos> eventos = new List<Eventos>();
 
-            sql.Append("SELECT e.*, p.nome as pessoa, s.nome as subarea, s.id_area ");
-            sql.Append("FROM eventos e ");
-            sql.Append("INNER JOIN pessoas p ");
-            sql.Append("ON e.id_pessoa=p.id ");
-            sql.Append("INNER JOIN subareas s ");
-            sql.Append("ON e.id_subarea=s.id ");
-            sql.Append("ORDER BY id DESC ");
+            sql.Append("SELECT * ");
+            sql.Append("FROM eventos ");
 
             MySqlCommand cmd = new MySqlCommand();
             cmd.CommandText = sql.ToString();
