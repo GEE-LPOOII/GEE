@@ -123,7 +123,7 @@ namespace GEEUI.Controllers
             return RedirectToAction("ListaEventos");
         }
 
-        
+        [HttpGet]
         public ActionResult DetailEvent (int id)
         {
             

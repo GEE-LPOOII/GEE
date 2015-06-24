@@ -1,4 +1,4 @@
-﻿@model IEnumerable<GEEData.Eventos>
+﻿@model GEEData.Eventos
 @{
     Layout = null;
     @Styles.Render("~/Content/css")
@@ -17,26 +17,25 @@
 </head>
 <body>
     <div> 
-        <center>
+        
             <div class="panel panel-default">
                 <div class="panel-heading">Detalhes Evento</div>
                 <div class="panel-body">
-                    @foreach (var e in Model)
-                    {
-                        <center><h4>@e.nome</h4></center>
+                   
+                        <center><h4>@Model.nome</h4></center>
                         <br />
                         <br />
                             <div class="row">
-                                <div class="col-md-4">Quantida de Horas:@e.qtd_horas</div>
-                                <div class="col-md-4">Cidade:@e.cidade</div>
-                                <div class="col-md-4">Data:@e.data</div>                                
+                                <div class="col-md-4">Quantida de Horas:@Model.qtd_horas</div>
+                                <div class="col-md-4">Cidade:@Model.cidade</div>
+                                <div class="col-md-4">Data:@Model.data</div>                                
                             </div>
-                        <textarea class="form-control" rows="3">@e.descricao</textarea>
+                        <textarea class="form-control" rows="3">@Model.descricao</textarea>
 
-                    }
+                    
                 </div>
             </div>
-        </center>
+        
     </div>
 </body>
 </html>

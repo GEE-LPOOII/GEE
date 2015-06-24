@@ -15,7 +15,7 @@ namespace GEERepository
             StringBuilder sql = new StringBuilder();
             Eventos evento = new Eventos();
 
-            sql.Append("Select *");
+            sql.Append("Select * ");
             sql.Append("from eventos ");
             sql.Append(" where id= " + pId);
 
