@@ -130,10 +130,14 @@ namespace GEEUI.Controllers
            return View(a);
         }
 
-       public ActionResult ListaEventPartial ()
+
+
+        [HttpGet]
+        public ActionResult DeletePessoa(int pIdPessoa)
         {
-            var a = EventosRepository.GetAll();
-            return View(a);
+            PessoasRepository pessoasRepo = new PessoasRepository();
+            pessoasRepo.Delete(pIdPessoa);
+            return RedirectToAction("ListaEventos");
         }
         
     }

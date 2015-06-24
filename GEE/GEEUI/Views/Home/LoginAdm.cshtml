@@ -21,27 +21,18 @@
             <ul class="nav nav-pills">
                 
                 <li role="presentation" class="active"><a href="#">Eventos</a></li>
-                <li role="presentation" data-toggle="modal" data-target=".bs-example-modal-lg" class="btn btn-link ">Usuarios</li>
+                <li role="presentation" >Usuarios</li>
                 <li role="presentation"><a href="#">Pagamento</a>
             </ul>
         </div>
-    </nav>
-
-
-
-
-
-
-
-
-
-
-
-      <!--Modal-->
-    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <table class="  table-responsive table table-hover">
+    </nav>    
+     
+</head>
+<body>
+    <div class="col-md-offset-3 col-md-6 "> 
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <table class="  table-responsive table table-hover" >
                     <tr>
                         <td>Nome</td>
                         <td>telefone</td>
@@ -51,29 +42,19 @@
                     @foreach (var pessoa in Model)
                     {
                         <tr>
-                          
+
                             <td>@pessoa.nome</td>
                             <td>@pessoa.telefone</td>
                             <td>@pessoa.email</td>
                             <td>@pessoa.cpf</td>
-                            <td><button class="btn-danger btn">Excluir</button></td>
+                            <td><button type="button" class="btn btn-danger" >@Html.ActionLink("Deletar", "DeletePessoa", new { id =  pessoa.id}) </button></td>
                         </tr>
                     }
                 </table>
-
-            </div>
-        </div>
-    </div>
-    <!--end Modal-->
-     
-</head>
-<body>
-    <div> 
-        <div class="panel panel-default">
-            <div class="panel-body">
-               
             </div>
         </div>
     </div>
 </body>
+
+  
 </html>
