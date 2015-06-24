@@ -25,7 +25,6 @@ namespace ConectaDAO
        { 
            if (conn.State == System.Data.ConnectionState.Closed)           
            {
-               
                conn.ConnectionString = StrConn.ToString();
                conn.Open();
            }           
@@ -34,6 +33,11 @@ namespace ConectaDAO
 
        public static bool CommandPersist(MySqlCommand pCmd)
        {
+           Connect();
+
+           if (dr != null && !dr.IsClosed)
+               dr.Close();
+           
            pCmd.Connection = conn;
            pCmd.ExecuteNonQuery();
            return true;
@@ -44,10 +48,11 @@ namespace ConectaDAO
            Connect();
            if (dr != null && !dr.IsClosed)
                dr.Close();
+
            cmd.Connection = conn;
            dr = cmd.ExecuteReader();
-           return dr;
 
+           return dr;
        }
        
     }
