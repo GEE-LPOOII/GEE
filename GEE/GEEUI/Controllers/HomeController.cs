@@ -57,7 +57,7 @@ namespace GEEUI.Controllers
         public ActionResult LoginAdm (FormCollection form)
        {
            
-            Adms adm = new Adms();
+            Adms adm = new Adms(); //???
 
 
            
@@ -66,12 +66,12 @@ namespace GEEUI.Controllers
 
             if (adm.cpf.Equals("01245678912") && adm.senha.Equals("12345")) 
             {
-
-                return View();
+                // página inicial do adm - menus: listar eventos para aprovação, listar inscrições pendentes...
+                return View(); 
             }
             else 
             {
-               return RedirectToAction("index");
+               return RedirectToAction("Index");
             }
           
         }

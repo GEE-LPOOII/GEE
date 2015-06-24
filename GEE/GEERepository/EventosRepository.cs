@@ -193,7 +193,7 @@ namespace GEERepository
             StringBuilder sql = new StringBuilder();
             MySqlCommand cmd = new MySqlCommand();
 
-            sql.Append("INSERT INTO eventos (nome, descricao, cidade, qtd_horas, data, id_pessoa, id_subarea)");
+            sql.Append("INSERT INTO eventos (nome, descricao, cidade, qtd_horas, data, id_pessoa, id_subarea) ");
             sql.Append("VALUES(@nome, @descricao, @cidade, @qtd_horas, @data, @id_pessoa, @id_subarea)");
 
             cmd.Parameters.AddWithValue("@nome", pEventos.nome);
@@ -220,7 +220,7 @@ namespace GEERepository
             StringBuilder sql = new StringBuilder();
             MySqlCommand cmd = new MySqlCommand();
 
-            sql.Append("UPDATE pessoas SET nome=@nome, descricao=@descricao, cidade=@cidade, qtd_horas=@qtd_horas, data=@data, id_pessoa=@id_pessoa, id_subarea=@id_subarea");
+            sql.Append("UPDATE eventos SET nome=@nome, descricao=@descricao, cidade=@cidade, qtd_horas=@qtd_horas, data=@data, id_pessoa=@id_pessoa, id_subarea=@id_subarea");
             sql.Append("WHERE id=" + pEventos.id);
 
             cmd.Parameters.AddWithValue("@nome", pEventos.nome);
@@ -230,6 +230,25 @@ namespace GEERepository
             cmd.Parameters.AddWithValue("@data", Convert.ToDateTime(pEventos.data).ToString("yyyy/MM/dd"));
             cmd.Parameters.AddWithValue("@id_pessoa", pEventos.id_pessoa);
             cmd.Parameters.AddWithValue("@id_subarea", pEventos.id_subarea);
+
+            cmd.CommandText = sql.ToString();
+            if (Connecta.CommandPersist(cmd))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool UpdateStatus(Eventos pEventos)
+        {
+            StringBuilder sql = new StringBuilder();
+            MySqlCommand cmd = new MySqlCommand();
+
+            sql.Append("UPDATE eventos SET status='1' ");
+            sql.Append("WHERE id=" + pEventos.id);
 
             cmd.CommandText = sql.ToString();
             if (Connecta.CommandPersist(cmd))

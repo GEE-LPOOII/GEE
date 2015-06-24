@@ -188,7 +188,7 @@ namespace GEERepository
             StringBuilder sql = new StringBuilder();
             MySqlCommand cmd = new MySqlCommand();
 
-            sql.Append("UPDATE inscricoes SET status='1'");
+            sql.Append("UPDATE inscricoes SET status='1' ");
             sql.Append("WHERE id=" + pId);
 
             cmd.CommandText = sql.ToString();
