@@ -13,7 +13,7 @@ namespace GEERepository
         public static void conect()
         {
       Connecta.DBName("localhost", 3306, "gee", "root", "");
-
+      Connecta.Connect();
         }
         public static Pessoas GetOne(string pCpf)
         {
