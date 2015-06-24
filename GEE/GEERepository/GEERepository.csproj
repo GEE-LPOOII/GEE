@@ -36,7 +36,7 @@
     </Reference>
     <Reference Include="mysql.data, Version=6.3.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Visual Studio 2013\Projects\TrabalhoG1\ConnContasLuz\bin\Debug\mysql.data.dll</HintPath>
+      <HintPath>..\..\..\..\..\Downloads\mysql.data\mysql.data.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdmRepository.cs" />
     <Compile Include="AreasRepository.cs" />
     <Compile Include="EventosRepository.cs" />
     <Compile Include="InscricoesRepository.cs" />
