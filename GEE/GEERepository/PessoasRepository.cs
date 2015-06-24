@@ -7,9 +7,14 @@ using System.Collections.Generic;
 
 namespace GEERepository
 {
+    
     public class PessoasRepository
     {
+        public static void conect()
+        {
+      Connecta.DBName("localhost", 3306, "gee", "root", "");
 
+        }
         public static Pessoas GetOne(string pCpf)
         {
             StringBuilder sql = new StringBuilder();

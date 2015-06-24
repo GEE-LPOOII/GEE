@@ -15,6 +15,7 @@ namespace GEEUI.Controllers
     
         public ActionResult Index()
         {
+            PessoasRepository.conect();
             return View();
         }
 
@@ -56,7 +57,8 @@ namespace GEEUI.Controllers
             if (AdmRepository.Login(adm.cpf, adm.senha) == true)
             {
                 return View();
-                //view dos menus
+                 
+
             }
             else 
             {

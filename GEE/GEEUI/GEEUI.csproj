@@ -157,6 +157,7 @@
     <Content Include="Views\Home\CreateEvento.cshtml" />
     <Content Include="Views\Other\EventosSubs.cshtml" />
     <Content Include="Views\Home\ListaEventos.cshtml" />
+    <Content Include="Views\Home\LoginAdm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
