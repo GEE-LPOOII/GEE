@@ -72,6 +72,7 @@ namespace GEEUI.Controllers
           
           
         }
+        [HttpPost]
         public ActionResult ListaEventos (FormCollection form)
         {
 
@@ -123,20 +124,20 @@ namespace GEEUI.Controllers
         }
 
         
-        public ActionResult DetailEvent (int idEvento)
+        public ActionResult DetailEvent (int id)
         {
             
-           var a = EventosRepository.GetOne(idEvento);
+           var a = EventosRepository.GetOne(id);
            return View(a);
         }
 
 
 
         [HttpGet]
-        public ActionResult DeletePessoa(int pIdPessoa)
+        public ActionResult DeletePessoa(int id)
         {
             PessoasRepository pessoasRepo = new PessoasRepository();
-            pessoasRepo.Delete(pIdPessoa);
+            pessoasRepo.Delete(id);
             return RedirectToAction("ListaEventos");
         }
 
@@ -151,6 +152,11 @@ namespace GEEUI.Controllers
             AdmRepository ad = new AdmRepository();
             ad.Create(adm);
             return RedirectToAction("LoginAdm");
+        }
+        [HttpGet]
+        public ActionResult SubEvento(int id)
+        {
+            return null;
         }
         
     }
