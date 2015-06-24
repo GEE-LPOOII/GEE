@@ -81,7 +81,34 @@ namespace GEERepository
         }
 
 
+         public static bool Login (string cpf,string senha)
+         {
+             StringBuilder sql = new StringBuilder();
+             Adms administrador = new Adms();
 
+             sql.Append("SELECT * ");
+             sql.Append("FROM administrador ");
+             sql.Append("WHERE cpf=" + cpf+ "and senha=" +senha);
+             MySqlCommand cmd = new MySqlCommand();
+             cmd.CommandText = sql.ToString();
+
+
+
+
+             try
+             {
+                 MySqlDataReader dr = Connecta.Get(cmd);
+                 return true;
+             }
+             catch (Exception)
+             {
+                return false;
+
+             }
+
+            
+             
+         }
         }
     }
 

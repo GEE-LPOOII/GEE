@@ -46,24 +46,16 @@ namespace GEEUI.Controllers
        {
            
             Adms adm = new Adms(); //???
+            AdmRepository admRepo = new AdmRepository();
 
 
            
             adm.cpf = (string)form["CpfAdm"];
             adm.senha = (string)form["SenhaAdm"];
 
-            adm.cpf.Replace(".", "");
-            adm.senha.Replace("-", "");
+            admRepo.
 
-            if (adm.cpf.Equals("01245678912") && adm.senha.Equals("12345")) 
-            {
-                // página inicial do adm - menus: listar eventos para aprovação, listar inscrições pendentes...
-                return View(); 
-            }
-            else 
-            {
-               return RedirectToAction("Index");
-            }
+          
           
         }
         public ActionResult ListaEventos (FormCollection form)
