@@ -78,7 +78,7 @@ namespace GEEUI.Controllers
             PessoasRepository pessoasRepo = new PessoasRepository();
             Pessoas pessoas = new Pessoas();
            var cpf = (string)form["CpfLogin"];
-            if (cpf == "")
+            if (cpf == null)
             {
                 var a = PessoasRepository.GetAll();
                 return View(a);
