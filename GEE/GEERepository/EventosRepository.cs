@@ -15,13 +15,9 @@ namespace GEERepository
             StringBuilder sql = new StringBuilder();
             Eventos evento = new Eventos();
 
-            sql.Append("SELECT e.*, p.nome as pessoa, s.nome as subarea, s.id_area ");
-            sql.Append("FROM eventos e ");
-            sql.Append("INNER JOIN pessoas p ");
-            sql.Append("ON e.id_pessoa=p.id ");
-            sql.Append("INNER JOIN subareas s ");
-            sql.Append("ON e.id_subarea=s.id ");
-            sql.Append("WHERE e.id=" + pId);
+            sql.Append("Select *");
+            sql.Append("from eventos ");
+            sql.Append(" where id= " + pId);
 
             MySqlCommand cmd = new MySqlCommand();
             cmd.CommandText = sql.ToString();
@@ -37,16 +33,8 @@ namespace GEERepository
                 evento.cidade = (string)dr["cidade"];
                 evento.qtd_horas = (int)dr["qtd_horas"];
                 evento.data = (DateTime)dr["data"];
-                evento.status = (int)dr["status"];
-                evento.id_pessoa = new Pessoas
-                {
-                    nome = (string)dr["pessoa"]
-                };
-                evento.id_subarea = new Subareas
-                {
-                    nome = (string)dr["subarea"],
-                    id_area = (Areas)dr["s.id_area"]
-                };
+                
+               
             }
             return evento;
         }
@@ -58,6 +46,7 @@ namespace GEERepository
 
             sql.Append("SELECT * ");
             sql.Append("FROM eventos ");
+           
 
             MySqlCommand cmd = new MySqlCommand();
             cmd.CommandText = sql.ToString();
@@ -76,16 +65,8 @@ namespace GEERepository
                         cidade = (string)dr["cidade"],
                         qtd_horas = (int)dr["qtd_horas"],
                         data = (DateTime)dr["data"],
-                        status = (int)dr["status"],
-                        id_pessoa = new Pessoas
-                        {
-                            nome = (string)dr["pessoa"]
-                        },
-                        id_subarea = new Subareas
-                        {
-                            nome = (string)dr["subarea"],
-                            id_area = (Areas)dr["s.id_area"]
-                        },
+                       
+                        
                     });
             }
             return eventos;
@@ -122,7 +103,7 @@ namespace GEERepository
                         cidade = (string)dr["cidade"],
                         qtd_horas = (int)dr["qtd_horas"],
                         data = (DateTime)dr["data"],
-                        status = (int)dr["status"],
+                        
                         id_pessoa = new Pessoas
                         {
                             nome = (string)dr["pessoa"]
@@ -168,7 +149,7 @@ namespace GEERepository
                         cidade = (string)dr["cidade"],
                         qtd_horas = (int)dr["qtd_horas"],
                         data = (DateTime)dr["data"],
-                        status = (int)dr["status"],
+                        
                         id_pessoa = new Pessoas
                         {
                             nome = (string)dr["pessoa"]

@@ -1,4 +1,6 @@
-﻿
+﻿@model IEnumerable<GEEData.Pessoas>
+
+
 @{
     Layout = null;
     @Styles.Render("~/Content/css")    
@@ -14,19 +16,64 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>LoginAdm</title>
-      
-    <ul class="nav nav-pills navbar-fixed-top">
-        <li role="presentation" class="active"><a href="#">Home</a></li>
-        <li role="presentation"><a href="#">Eventos</a></li>
-        <li role="presentation"><a href="#">Usuários</a></li>
-        <li role="presentation"><a href="#">Pagamento</a>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <ul class="nav nav-pills">
+                
+                <li role="presentation" class="active"><a href="#">Eventos</a></li>
+                <li role="presentation" data-toggle="modal" data-target=".bs-example-modal-lg" class="btn btn-link ">Usuarios</li>
+                <li role="presentation"><a href="#">Pagamento</a>
+            </ul>
+        </div>
+    </nav>
 
 
-    </ul>
+
+
+
+
+
+
+
+
+
+      <!--Modal-->
+    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <table class="  table-responsive table table-hover">
+                    <tr>
+                        <td>Nome</td>
+                        <td>telefone</td>
+                        <td>Email</td>
+                        <td>Cpf</td>
+                    </tr>
+                    @foreach (var pessoa in Model)
+                    {
+                        <tr>
+                          
+                            <td>@pessoa.nome</td>
+                            <td>@pessoa.telefone</td>
+                            <td>@pessoa.email</td>
+                            <td>@pessoa.cpf</td>
+                            <td><button class="btn-danger btn">Excluir</button></td>
+                        </tr>
+                    }
+                </table>
+
+            </div>
+        </div>
+    </div>
+    <!--end Modal-->
      
 </head>
 <body>
     <div> 
+        <div class="panel panel-default">
+            <div class="panel-body">
+               
+            </div>
+        </div>
     </div>
 </body>
 </html>

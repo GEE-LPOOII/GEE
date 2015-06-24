@@ -58,7 +58,9 @@ namespace GEEUI.Controllers
             
             if (AdmRepository.Login(adm.cpf, adm.senha) == true)
             {
-                return View();
+                var pessoa = PessoasRepository.GetAll();
+                
+                return View(pessoa);
                  
 
             }
@@ -119,12 +121,19 @@ namespace GEEUI.Controllers
 
             return RedirectToAction("ListaEventos");
         }
-        [HttpPost]
+
+        
         public ActionResult DetailEvent (int idEvento)
         {
             
            var a = EventosRepository.GetOne(idEvento);
            return View(a);
+        }
+
+       public ActionResult ListaEventPartial ()
+        {
+            var a = EventosRepository.GetAll();
+            return View(a);
         }
         
     }
