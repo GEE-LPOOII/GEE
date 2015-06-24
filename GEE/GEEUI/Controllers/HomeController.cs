@@ -139,6 +139,19 @@ namespace GEEUI.Controllers
             pessoasRepo.Delete(pIdPessoa);
             return RedirectToAction("ListaEventos");
         }
+
+        [HttpGet]
+        public ActionResult CreateAdm ()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult CreateAdm(Adms adm)
+        {
+            AdmRepository ad = new AdmRepository();
+            ad.Create(adm);
+            return RedirectToAction("LoginAdm");
+        }
         
     }
 }
