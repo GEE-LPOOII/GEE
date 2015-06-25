@@ -218,25 +218,6 @@ namespace GEERepository
             }
         }
 
-        public bool UpdateStatus(Eventos pEventos)
-        {
-            StringBuilder sql = new StringBuilder();
-            MySqlCommand cmd = new MySqlCommand();
-
-            sql.Append("UPDATE eventos SET status='1' ");
-            sql.Append("WHERE id=" + pEventos.id);
-
-            cmd.CommandText = sql.ToString();
-            if (Connecta.CommandPersist(cmd))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
         public bool Delete(int pId)
         {
             StringBuilder sql = new StringBuilder();

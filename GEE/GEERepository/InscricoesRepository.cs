@@ -159,17 +159,16 @@ namespace GEERepository
             return inscricoes;
         }
         
-        public bool Create(Inscricoes pInscricoes)
+        public bool Create(int IdPessoa, int IdEvento)
         {
             StringBuilder sql = new StringBuilder();
             MySqlCommand cmd = new MySqlCommand();
 
-            sql.Append("INSERT INTO inscricoes (status, id_pessoa, id_evento)");
-            sql.Append("VALUES('0', @id_pessoa, @id_evento)");
+            sql.Append("INSERT INTO inscricoes (id_pessoa, id_evento)");
+            sql.Append("VALUES(@id_pessoa, @id_evento)");
 
-            cmd.Parameters.AddWithValue("@status", pInscricoes.status);
-            cmd.Parameters.AddWithValue("@id_pessoa", pInscricoes.id_pessoa);
-            cmd.Parameters.AddWithValue("@id_evento", pInscricoes.id_evento);
+            cmd.Parameters.AddWithValue("@id_pessoa", IdPessoa);
+            cmd.Parameters.AddWithValue("@id_evento", IdEvento);
 
             cmd.CommandText = sql.ToString();
             if (Connecta.CommandPersist(cmd))
