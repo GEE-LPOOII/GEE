@@ -26,10 +26,12 @@ namespace GEEUI.Controllers
             PessoasRepository pessoasRepo = new PessoasRepository();
             Pessoas pessoas = new Pessoas();
 
+            pessoas.cpf = (string)form["CPFCadastrar"];
+            pessoas.cpf = pessoas.cpf.Replace(".", "");
+            pessoas.cpf = pessoas.cpf.Replace("-", "");
             pessoas.nome = (string)form["NomeCadastrar"];
             pessoas.telefone = (string)form["TelCadastras"];
             pessoas.email = (string)form["EmailCadastrar"];
-            pessoas.cpf = (string)form["CPFCadastrar"];
 
             if (pessoasRepo.Create(pessoas) == true)
             {
@@ -92,6 +94,7 @@ namespace GEEUI.Controllers
                 Pessoas pessoasR = new Pessoas();
                 pessoasR = PessoasRepository.GetOne(pessoas.cpf);
                 ViewBag.nome = pessoasR.nome;
+                ViewBag.idPessoa = pessoasR.id;
                 var a = EventosRepository.GetAll();
                 return View(a);
                 //View Usuario comum
@@ -156,6 +159,7 @@ namespace GEEUI.Controllers
         [HttpGet]
         public ActionResult SubEvento(int id)
         {
+            InscricoesRepository subsRepo = new InscricoesRepository();
             return null;
         }
         
