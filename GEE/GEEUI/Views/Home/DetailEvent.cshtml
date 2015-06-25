@@ -37,7 +37,7 @@
                         <button class="btn btn-default">@Html.ActionLink("Voltar","ListaEventos","Home")</button>
                     </div>
                         <div class="col-xs-6 col-sm-3">
-                            <button class="btn btn-default">Inscrever-se</button>
+                            <button class="btn btn-default">@Html.ActionLink("Inscrever-se", "SubEvento", new { id = @Model.id_pessoa })</button>
                         </div>
 
 
