@@ -8,6 +8,7 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     //View de usuario comum
+   
 }
 
 <!DOCTYPE html>
@@ -35,7 +36,7 @@
                         <td>@e.nome</td>
                         <td>@e.qtd_horas</td>
                         <td><button class="btn btn-default">@Html.ActionLink("Detalhes", "DetailEvent", new { id = e.id })</button></td>
-                        <td><button class="btn btn-success">@Html.ActionLink("Inscrever-se", "SubEvento", new { id = e.id_pessoa })</button></td>
+                        <td><button class="btn btn-success">@Html.ActionLink("Inscrever-se", "SubEvento", new { idPessoa = ViewBag.idPessoa, idEvento = e.id })</button></td>
                        
                        
                         

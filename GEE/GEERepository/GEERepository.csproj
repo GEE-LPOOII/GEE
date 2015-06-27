@@ -30,13 +30,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ClsConexao, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\ClsConexao\bin\Debug\ClsConexao.dll</HintPath>
+    <Reference Include="ConectaDAO">
+      <HintPath>..\ClsConexao\bin\Debug\ConectaDAO.dll</HintPath>
     </Reference>
-    <Reference Include="mysql.data, Version=6.3.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Downloads\mysql.data\mysql.data.dll</HintPath>
+    <Reference Include="mysql.data">
+      <HintPath>..\..\..\..\Visual Studio 2013\Projects\ADO.NET\ConnElinhoDAO\bin\Debug\mysql.data.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

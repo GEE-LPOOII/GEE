@@ -30,11 +30,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ClsConexao">
-      <HintPath>..\ClsConexao\bin\Debug\ClsConexao.dll</HintPath>
+    <Reference Include="ConectaDAO">
+      <HintPath>..\ClsConexao\bin\Debug\ConectaDAO.dll</HintPath>
     </Reference>
     <Reference Include="mysql.data">
-      <HintPath>..\ClsConexao\bin\Debug\mysql.data.dll</HintPath>
+      <HintPath>..\..\..\..\Visual Studio 2013\Projects\ADO.NET\ConnElinhoDAO\bin\Debug\mysql.data.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

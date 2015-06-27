@@ -93,6 +93,7 @@ namespace GEEUI.Controllers
                 pessoas.cpf =pessoas.cpf.Replace("-", "");
                 Pessoas pessoasR = new Pessoas();
                 pessoasR = PessoasRepository.GetOne(pessoas.cpf);
+            
                 ViewBag.nome = pessoasR.nome;
                 ViewBag.idPessoa = pessoasR.id;
                 var a = EventosRepository.GetAll();
@@ -157,9 +158,10 @@ namespace GEEUI.Controllers
             return RedirectToAction("LoginAdm");
         }
         [HttpGet]
-        public ActionResult SubEvento(int id)
+        public ActionResult SubEvento(int idEvento, int idPessoa)
         {
             InscricoesRepository subsRepo = new InscricoesRepository();
+            subsRepo.Create(idPessoa, idEvento);
             return null;
         }
         
