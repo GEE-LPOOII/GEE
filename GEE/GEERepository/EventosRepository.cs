@@ -237,5 +237,26 @@ namespace GEERepository
             }
         }
 
+        public void GetSubs(int IdPessoa, int IdEvento)
+        {
+            StringBuilder sql = new StringBuilder();
+            MySqlCommand cmd = new MySqlCommand();
+
+            sql.Append("select eventos.nome,eventos.descricao,eventos.qtd_horas,eventos.data from pessoas p ");
+            sql.Append(" inner join inscricoes as sub on @p.id = @sub.id_pessoa ");
+            sql.Append(" inner join eventos on @eventos.id = @sub.id_evento");
+
+            cmd.Parameters.AddWithValue("@p.id", IdPessoa);
+            
+
+            cmd.Parameters.AddWithValue("@eventos.id", IdEvento);
+           
+
+            cmd.CommandText = sql.ToString();
+
+            Connecta.CommandPersist(cmd); 
+        
+        }
+
     }
 }
