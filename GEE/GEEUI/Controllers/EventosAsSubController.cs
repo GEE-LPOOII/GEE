@@ -13,10 +13,11 @@ namespace GEEUI.Controllers
         // GET: EventosAsSub
         public ActionResult Index()
         {
-            EventosRepository eventosRepo = new EventosRepository();
+            
+           var a = InscricoesRepository.GetIsncricoesPendentes();
             
 
-            return View();
+            return View(a);
         }
     }
 }

@@ -60,9 +60,9 @@ namespace GEEUI.Controllers
             
             if (AdmRepository.Login(adm.cpf, adm.senha) == true)
             {
-                var pessoa = PessoasRepository.GetAll();
                 
-                return View(pessoa);
+                
+                return View();
                  
 
             }

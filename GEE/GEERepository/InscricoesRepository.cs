@@ -81,43 +81,27 @@ namespace GEERepository
             return inscricoes;
         }
 
-        public static List<Inscricoes> GetIsncricoesPendentes()
+        public static List<Eventos> GetIsncricoesPendentes()
         {
             StringBuilder sql = new StringBuilder();
-            List<Inscricoes> inscricoes = new List<Inscricoes>();
+            
 
-            sql.Append("SELECT i.*, p.nome as pessoa, e.nome as evento ");
-            sql.Append("FROM inscricoes i ");
-            sql.Append("INNER JOIN pessoas p ");
-            sql.Append("ON i.id_pessoa=p.id ");
-            sql.Append("INNER JOIN eventos e ");
-            sql.Append("ON i.id_evento=e.id ");
-            sql.Append("WHERE status=0 ");
-            sql.Append("ORDER BY id DESC ");
+            //sql da tabela incricoes
+            //sql.Append("select pessoas.nome,pessoas.cpf,pessoas.telefone from pessoas ");
 
             MySqlCommand cmd = new MySqlCommand();
             cmd.CommandText = sql.ToString();
 
+            
+           
 
-            MySqlDataReader dr = Connecta.Get(cmd);
+           
 
-            while (dr.Read())
-            {
-                inscricoes.Add(
-                    new Inscricoes
-                    {
-                        id = (int)dr["id"],
-                        id_pessoa = new Pessoas
-                        {
-                            nome = (string)dr["pessoa"],
-                        },
-                        id_evento = new Eventos
-                        {
-                            nome = (string)dr["evento"],
-                        }
-                    });
-            }
-            return inscricoes;
+            return null;
+
+            
+
+           
         }
 
         public static List<Inscricoes> GetIsncricoesAprovadas()

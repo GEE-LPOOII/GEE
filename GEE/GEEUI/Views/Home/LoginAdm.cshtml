@@ -1,4 +1,4 @@
-﻿@model IEnumerable<GEEData.Pessoas>
+﻿
 
 
 @{
@@ -16,45 +16,11 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>LoginAdm</title>
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <ul class="nav nav-pills">
-                
-                <li role="presentation" class="active"><a href="#">Eventos</a></li>                
-                <li role="presentation"><a href="#">Pagamento</a>
-            </ul>
-        </div>
-    </nav>    
+     
      
 </head>
 <body>
-    <div class="col-md-offset-3 col-md-6 "> 
-        <div class="panel panel-default">
-            <div class="panel-body">
-                <table class="  table-responsive table table-hover" >
-                    <tr>
-                        <td>Nome</td>
-                        <td>telefone</td>
-                        <td>Email</td>
-                        <td>Cpf</td>
-                    </tr>
-                    @foreach (var pessoa in Model)
-                    {
-                        <tr>
-
-                            <td>@pessoa.nome</td>
-                            <td>@pessoa.telefone</td>
-                            <td>@pessoa.email</td>
-                            <td>@pessoa.cpf</td>
-                            <td><button type="button" class="btn btn-danger" >@Html.ActionLink("Deletar", "DeletePessoa", new { id =  pessoa.id}) </button></td>
-                        </tr>
-                    }
-                </table>
-            </div>
-           <button class="btn btn-default">@Html.ActionLink("Novo evento", "CreateEvento", "Home")</button>
-            <button class="btn btn-default">@Html.ActionLink("Novo Adm","CreateAdm","Home")</button>
-        </div>
-    </div>
+    
 </body>
 
   

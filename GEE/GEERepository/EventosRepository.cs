@@ -242,14 +242,16 @@ namespace GEERepository
             StringBuilder sql = new StringBuilder();
             MySqlCommand cmd = new MySqlCommand();
 
-            //select eventos.nome,eventos.descricao,eventos.qtd_horas,eventos.data from pessoas p
-            //inner join inscricoes as sub on sub.id_evento = 1
-            //inner join eventos on eventos.id = 1
+            //select eventos.nome,eventos.descricao,eventos.qtd_horas,eventos.data from eventos 
+            //inner join inscricoes on eventos.id = @idEvento
+            //inner join pessoas on 
+            //where pessoas.id = @idPessoa
 
 
-            sql.Append("select eventos.nome,eventos.descricao,eventos.qtd_horas,eventos.data from pessoas p ");
-            sql.Append(" inner join inscricoes as sub on sub.id_evento = @id_pessoa ");
-            sql.Append(" inner join eventos on eventos.id = @id_eventos ");
+            sql.Append("select eventos.nome,eventos.descricao,eventos.qtd_horas,eventos.data from eventos ");
+            sql.Append(" inner join inscricoes on eventos.id = @idEvento ");
+            sql.Append(" inner join pessoas on  ");
+            sql.Append(" where pessoas.id = @idPessoa ");
 
             cmd.Parameters.AddWithValue("@id_pessoa", IdPessoa);
 

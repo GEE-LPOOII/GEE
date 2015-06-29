@@ -1,0 +1,30 @@
+﻿@model IEnumerable<GEEData.Eventos>
+
+@{
+    Layout = null;
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/bootstrap.css")
+    @Styles.Render("~/Scripts/jquery-1.10.2.js")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+}
+
+<table>
+    <tr>
+        <td>Nome</td>
+        <td>CPF</td>
+        <td>Telefone</td>
+        <td>Nome Do Evento</td>
+    </tr>
+    @foreach (var evento in Model)        
+    {
+        <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>@evento.nome</th>
+            
+        </tr>
+        
+    }
+</table>
