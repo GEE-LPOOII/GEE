@@ -139,6 +139,23 @@ namespace GEERepository
             }
         }
 
+        public bool Valida(Pessoas pessoa)
+        {
+            string sql = "SELECT * FROM pessoas WHERE cpf='" + pessoa.cpf + "'";
+
+            MySqlDataReader dr;
+            dr = ConnControleContas.Get(sql);
+
+            if (dr.HasRows)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public void Subscribe (int pId)
         {
             StringBuilder sql = new StringBuilder();

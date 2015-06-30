@@ -19,8 +19,6 @@ namespace GEEUI.Controllers
             return View();
         }
 
-       
-
         public ActionResult CadastrarPessoa (FormCollection form)
         {
             PessoasRepository pessoasRepo = new PessoasRepository();
@@ -44,14 +42,12 @@ namespace GEEUI.Controllers
             return RedirectToAction("Index");
             
         }
+
         [HttpPost]
         public ActionResult LoginAdm (FormCollection form)
-       {
-           
+        {
             Adms adm = new Adms(); //???
             AdmRepository admRepo = new AdmRepository();
-
-
            
             adm.cpf = (string)form["CpfAdm"];
             adm.senha = (string)form["SenhaAdm"];
@@ -59,28 +55,21 @@ namespace GEEUI.Controllers
             adm.cpf = adm.cpf.Replace("-", "");
             
             if (AdmRepository.Login(adm.cpf, adm.senha) == true)
-            {
-                
-                
+            { 
                 return View();
-                 
-
             }
             else 
             {
                 return Redirect("index");
-            }
-
-          
-          
+            }        
         }
+
         [HttpPost]
         public ActionResult ListaEventos (FormCollection form)
         {
-
             PessoasRepository pessoasRepo = new PessoasRepository();
             Pessoas pessoas = new Pessoas();
-           var cpf = (string)form["CpfLogin"];
+            var cpf = (string)form["CpfLogin"];
             if (cpf == null)
             {
                 var a = PessoasRepository.GetAll();
@@ -100,10 +89,8 @@ namespace GEEUI.Controllers
                 return View(a);
                 //View Usuario comum
             }
-           
-
-
         }
+
         [HttpGet]
         public ActionResult CreateEvento()
         {
@@ -135,8 +122,6 @@ namespace GEEUI.Controllers
            return View(a);
         }
 
-
-
         [HttpGet]
         public ActionResult DeletePessoa(int id)
         {
@@ -150,6 +135,7 @@ namespace GEEUI.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public ActionResult CreateAdm(Adms adm)
         {
@@ -157,6 +143,7 @@ namespace GEEUI.Controllers
             ad.Create(adm);
             return RedirectToAction("LoginAdm");
         }
+
         [HttpGet]
         public ActionResult SubEvento(int idEvento, int idPessoa)
         {
