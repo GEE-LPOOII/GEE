@@ -122,7 +122,7 @@ namespace GEEUI.Controllers
                 //View Usuario comum
             }
         }
-
+        /*
         [HttpGet]
         public ActionResult CreateEvento()
         {
@@ -130,7 +130,7 @@ namespace GEEUI.Controllers
             ViewBag.listaSubA = GetSubA();
            
             return View();
-        }
+        }*/
 
        
         
