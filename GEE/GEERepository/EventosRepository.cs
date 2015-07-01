@@ -104,10 +104,7 @@ namespace GEERepository
                         qtd_horas = (int)dr["qtd_horas"],
                         data = (DateTime)dr["data"],
                         
-                        id_pessoa = new Pessoas
-                        {
-                            nome = (string)dr["pessoa"]
-                        },
+                       
                         id_subarea = new Subareas
                         {
                             nome = (string)dr["subarea"],
@@ -170,14 +167,14 @@ namespace GEERepository
             MySqlCommand cmd = new MySqlCommand();
 
             sql.Append("INSERT INTO eventos (nome, descricao, cidade, qtd_horas, data, id_pessoa, id_subarea) ");
-            sql.Append("VALUES(@nome, @descricao, @cidade, @qtd_horas, @data, @id_pessoa, @id_subarea)");
+            sql.Append("VALUES(@nome, @descricao, @cidade, @qtd_horas, @data, @id_subarea)");
 
             cmd.Parameters.AddWithValue("@nome", pEventos.nome);
             cmd.Parameters.AddWithValue("@descricao", pEventos.descricao);
             cmd.Parameters.AddWithValue("@cidade", pEventos.cidade);
             cmd.Parameters.AddWithValue("@qtd_horas", pEventos.qtd_horas);
             cmd.Parameters.AddWithValue("@data", Convert.ToDateTime(pEventos.data).ToString("yyyy/MM/dd"));
-            cmd.Parameters.AddWithValue("@id_pessoa", pEventos.id_pessoa);
+           
             cmd.Parameters.AddWithValue("@id_subarea", pEventos.id_subarea);
 
             cmd.CommandText = sql.ToString();
