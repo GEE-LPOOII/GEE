@@ -164,6 +164,7 @@
     <Content Include="Views\Home\LoginAdm.cshtml" />
     <Content Include="Views\Home\CreateAdm.cshtml" />
     <Content Include="Views\EventosAsSub\_IndexEventos.cshtml" />
+    <Content Include="Views\Shared\_Adm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
