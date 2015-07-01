@@ -46,7 +46,7 @@ namespace GEEUI.Controllers
         [HttpPost]
         public ActionResult LoginAdm (FormCollection form)
         {
-            Adms adm = new Adms(); //???
+            Adms adm = new Adms();
             AdmRepository admRepo = new AdmRepository();
            
             adm.cpf = (string)form["CpfAdm"];
@@ -55,13 +55,45 @@ namespace GEEUI.Controllers
             adm.cpf = adm.cpf.Replace("-", "");
             
             if (AdmRepository.Login(adm.cpf, adm.senha) == true)
-            { 
-                return View();
+            {
+
+                HttpCookie myCookie = new HttpCookie("login_info");
+                myCookie["cpf_adm"] = adm.cpf;
+                myCookie["nome_adm"] = adm.nome;
+
+                myCookie.Expires = DateTime.Now.AddDays(1d);
+                HttpContext.Response.Cookies.Add(myCookie);
+                
+                return View("LoginAdm");
             }
             else 
             {
                 return Redirect("index");
             }        
+        }
+
+        [HttpGet]
+        public ActionResult LoginAdm()
+        {
+            if (Request.Cookies["login_info"] != null)
+            {
+                if (Request.Cookies["login_info"]["cpf_adm"] != null)
+                {
+                    ViewBag.IdAdm = Request.Cookies["login_info"]["cpf_adm"];
+                }
+
+                if (Request.Cookies["login_info"]["nome_adm"] != null)
+                {
+                    ViewBag.IdAdm = Request.Cookies["login_info"]["nome_usuario"];
+                }
+
+                var eventos = EventosRepository.GetAll();
+                return View(eventos);
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }     
         }
 
         [HttpPost]
