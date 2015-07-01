@@ -126,6 +126,9 @@ namespace GEEUI.Controllers
         [HttpGet]
         public ActionResult CreateEvento()
         {
+            //GetSubA();
+            ViewBag.listaSubA = GetSubA();
+           
             return View();
         }
         [HttpPost]
@@ -135,13 +138,14 @@ namespace GEEUI.Controllers
             
             Eventos eventos = new Eventos();
             EventosRepository eventosRepo = new EventosRepository();
+            ViewBag.select = int.Parse(form["listaSubA"]);
 
             eventos.nome = (string)form["NomeEvento"];
             eventos.cidade = (string)form["CidadeEvento"];
             eventos.data = DateTime.Parse(form["DataEvento"]);
             eventos.qtd_horas = Int32.Parse(form["Qtd_horasEvento"]);
             eventos.descricao = (string)form["DescEvento"];
-
+            eventos.id_subarea = ViewBag.select;
             eventosRepo.Create(eventos);
 
             return RedirectToAction("ListaEventos");
@@ -183,6 +187,12 @@ namespace GEEUI.Controllers
             InscricoesRepository subsRepo = new InscricoesRepository();
             subsRepo.Create(idPessoa, idEvento);
             return Redirect("ListaEventos");
+        }
+
+        public SelectList GetSubA() 
+        {
+            List<Subareas> sub = SubareasRepository.GetAll();
+            return new SelectList(sub, "id", "nome");
         }
         
     }

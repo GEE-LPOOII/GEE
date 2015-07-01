@@ -174,7 +174,7 @@ namespace GEERepository
             cmd.Parameters.AddWithValue("@cidade", pEventos.cidade);
             cmd.Parameters.AddWithValue("@qtd_horas", pEventos.qtd_horas);
             cmd.Parameters.AddWithValue("@data", Convert.ToDateTime(pEventos.data).ToString("yyyy/MM/dd"));           
-            //cmd.Parameters.AddWithValue("@id_subarea", pEventos.id_subarea);
+            cmd.Parameters.AddWithValue("@id_subarea", pEventos.id_subarea);
 
             cmd.CommandText = sql.ToString();
             if (Connecta.CommandPersist(cmd))
