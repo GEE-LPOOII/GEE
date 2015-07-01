@@ -150,7 +150,7 @@ namespace GEEUI.Controllers
             eventos.id_subarea = ViewBag.select; // aqui diz que nao consegue converter de int para subarea
             eventosRepo.Create(eventos);
 
-            return RedirectToAction("LoginAdm");
+            return RedirectToAction("ListaEventos");
         }
 
         [HttpGet]
