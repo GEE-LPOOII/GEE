@@ -84,24 +84,20 @@ namespace GEERepository
         public static List<Eventos> GetIsncricoesPendentes()
         {
             StringBuilder sql = new StringBuilder();
-            
 
-            //sql da tabela incricoes
-            //sql.Append("select pessoas.nome,pessoas.cpf,pessoas.telefone from pessoas ");
+            sql.Append("SELECT i.*, p.nome as pessoa, e.nome as evento ");
+            sql.Append("FROM inscricoes i ");
+            sql.Append("INNER JOIN pessoas p ");
+            sql.Append("ON i.id_pessoa=p.id ");
+            sql.Append("INNER JOIN eventos e ");
+            sql.Append("ON i.id_evento=e.id ");
+            sql.Append("WHERE status=0 ");
+            sql.Append("ORDER BY id DESC ");
 
             MySqlCommand cmd = new MySqlCommand();
             cmd.CommandText = sql.ToString();
 
-            
-           
-
-           
-
-            return null;
-
-            
-
-           
+            return null;         
         }
 
         public static List<Inscricoes> GetIsncricoesAprovadas()

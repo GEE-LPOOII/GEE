@@ -30,11 +30,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ConectaDAO">
-      <HintPath>..\ClsConexao\bin\Debug\ConectaDAO.dll</HintPath>
-    </Reference>
     <Reference Include="mysql.data">
-      <HintPath>..\..\..\..\Visual Studio 2013\Projects\ADO.NET\ConnElinhoDAO\bin\Debug\mysql.data.dll</HintPath>
+      <HintPath>..\..\..\..\..\Desktop\mysql.data.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -54,6 +51,10 @@
     <Compile Include="SubareasRepository.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ClsConexao\ClsConexao.csproj">
+      <Project>{20d2e51f-febf-46f8-a424-c90a703f94a3}</Project>
+      <Name>ClsConexao</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GEEData\GEEData.csproj">
       <Project>{80a6f894-07b8-4f45-a382-5966dd2f8dbc}</Project>
       <Name>GEEData</Name>

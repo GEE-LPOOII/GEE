@@ -141,10 +141,15 @@ namespace GEERepository
 
         public bool Valida(Pessoas pessoa)
         {
-            string sql = "SELECT * FROM pessoas WHERE cpf='" + pessoa.cpf + "'";
+            StringBuilder sql = new StringBuilder();
+            MySqlCommand cmd = new MySqlCommand();
 
+            sql.Append("SELECT * FROM pessoas ");
+            sql.Append("WHERE cpf='" + pessoa.cpf + "'");
+
+            cmd.CommandText = sql.ToString();
             MySqlDataReader dr;
-            dr = ConnControleContas.Get(sql);
+            dr = Connecta.Get(cmd);
 
             if (dr.HasRows)
             {
