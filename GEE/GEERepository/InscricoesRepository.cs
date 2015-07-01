@@ -97,6 +97,8 @@ namespace GEERepository
 
             MySqlCommand cmd = new MySqlCommand();
             cmd.CommandText = sql.ToString();
+            List<Eventos> eventos = new List<Eventos>();
+            MySqlDataReader dr = Connecta.Get(cmd);
 
             return null;         
         }

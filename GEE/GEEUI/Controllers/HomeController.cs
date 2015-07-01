@@ -182,7 +182,7 @@ namespace GEEUI.Controllers
         {
             InscricoesRepository subsRepo = new InscricoesRepository();
             subsRepo.Create(idPessoa, idEvento);
-            return null;
+            return Redirect("ListaEventos");
         }
         
     }
