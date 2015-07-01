@@ -131,8 +131,16 @@ namespace GEEUI.Controllers
            
             return View();
         }
-        [HttpPost]
 
+        [HttpGet]
+        public ActionResult CreateEvento()
+        {
+            ViewBag.Tipo = new SelectList(SubareasRepository.GetAll(), "id", "nome");
+            
+            return View();
+        }
+        
+        [HttpPost]
         public ActionResult CreateEvento(FormCollection form)
         {
             
