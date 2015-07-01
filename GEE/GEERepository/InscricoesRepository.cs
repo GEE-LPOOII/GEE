@@ -94,13 +94,30 @@ namespace GEERepository
             sql.Append("ON i.id_evento=e.id ");
             sql.Append("WHERE status=0 ");
             sql.Append("ORDER BY id DESC ");
-
+            
             MySqlCommand cmd = new MySqlCommand();
             cmd.CommandText = sql.ToString();
             List<Eventos> eventos = new List<Eventos>();
             MySqlDataReader dr = Connecta.Get(cmd);
+            while (dr.Read())
+            {
+                eventos.Add(
+                    new Eventos
+                    {
+                        
+                        nome = (string)dr["nome"],                       
+                        cidade = (string)dr["cidade"],
+                        qtd_horas = (int)dr["qtd_horas"],
+                        data = (DateTime)dr["data"],
 
-            return null;         
+
+                    });
+
+
+            }
+            return eventos;
+
+                     
         }
 
         public static List<Inscricoes> GetIsncricoesAprovadas()
