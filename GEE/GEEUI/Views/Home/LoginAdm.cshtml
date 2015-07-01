@@ -15,23 +15,53 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>LoginAdm</title>
+    <title>Eventos</title>
      
      
 </head>
 <body>
-<<<<<<< HEAD
-    @Html.Partial("_IndexEventos")
-=======
-   
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.descricao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cidade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.qtd_horas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.data)
+            </th>
+            <th></th>
+        </tr>
 
-    <br />
-    <br />
-   
-    <div class="col-xs-6 col-sm-4">
-       <button class="btn btn-default">@Html.ActionLink("Criar Evento", "CreateEvento", "LoginAdm")</button>
-    </div>
->>>>>>> cda8934f199d66188b0bca37a7fd855a2a42936f
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.nome)</td>
+                <td>@Html.DisplayFor(modelItem => item.descricao)</td>
+                <td>@Html.DisplayFor(modelItem => item.cidade)</td>
+                <td>@Html.DisplayFor(modelItem => item.qtd_horas)</td>
+                <td>@Html.DisplayFor(modelItem => item.data)</td>
+                <td>
+                    @Html.ActionLink("Editar", "EditEvento", new { id = item.id })
+                @Html.ActionLink("Deletar", "DeleteEvento", new { id = item.id })
+            </td>
+        </tr>
+        }
+    </table>
+        <br />
+        <br />
+
+        <div class="col-xs-6 col-sm-4">
+            <button class="btn btn-default">@Html.ActionLink("Criar Evento", "CreateEvento", "LoginAdm")</button>
+        </div>
+        >>>>>>> cda8934f199d66188b0bca37a7fd855a2a42936f
 </body>
 
   
