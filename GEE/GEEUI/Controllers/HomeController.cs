@@ -132,28 +132,22 @@ namespace GEEUI.Controllers
             return View();
         }
 
-        [HttpGet]
-        public ActionResult CreateEvento()
-        {
-            ViewBag.Tipo = new SelectList(SubareasRepository.GetAll(), "id", "nome");
-            
-            return View();
-        }
+       
         
         [HttpPost]
         public ActionResult CreateEvento(FormCollection form)
         {
-            
+            //Aquii indaia
             Eventos eventos = new Eventos();
             EventosRepository eventosRepo = new EventosRepository();
-            ViewBag.select = int.Parse(form["listaSubA"]);
+            ViewBag.select = int.Parse(form["listaSubA"]); //Aqui ta a informação selecionado do Dropdown
 
             eventos.nome = (string)form["NomeEvento"];
             eventos.cidade = (string)form["CidadeEvento"];
             eventos.data = DateTime.Parse(form["DataEvento"]);
             eventos.qtd_horas = Int32.Parse(form["Qtd_horasEvento"]);
             eventos.descricao = (string)form["DescEvento"];
-            eventos.id_subarea = ViewBag.select;
+            eventos.id_subarea = ViewBag.select; // aqui diz que nao consegue converter de int para subarea
             eventosRepo.Create(eventos);
 
             return RedirectToAction("ListaEventos");
