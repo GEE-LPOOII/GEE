@@ -163,7 +163,7 @@
     <Content Include="Views\Home\ListaEventos.cshtml" />
     <Content Include="Views\Home\LoginAdm.cshtml" />
     <Content Include="Views\Home\CreateAdm.cshtml" />
-    <Content Include="Views\EventosAsSub\Index.cshtml" />
+    <Content Include="Views\EventosAsSub\IndexEven.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

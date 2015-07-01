@@ -11,7 +11,7 @@ namespace GEEUI.Controllers
     public class EventosAsSubController : Controller
     {
         // GET: EventosAsSub
-        public ActionResult Index()
+        public ActionResult IndexEven()
         {
             
            var a = InscricoesRepository.GetIsncricoesPendentes();
