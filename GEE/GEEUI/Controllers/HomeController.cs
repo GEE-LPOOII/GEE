@@ -92,7 +92,7 @@ namespace GEEUI.Controllers
             }
             else
             {
-                return RedirectToAction("Index");
+                return Redirect("Home/Index");
             }     
         }
 
@@ -195,6 +195,13 @@ namespace GEEUI.Controllers
         {
             List<Subareas> sub = SubareasRepository.GetAll();
             return new SelectList(sub, "id", "nome");
+        }
+        
+        public ActionResult DeleteEvento (int pId)
+        {
+            EventosRepository evento = new EventosRepository();
+            evento.Delete(pId);
+            return RedirectToAction("LoginAdm");
         }
         
     }
