@@ -15,7 +15,7 @@ namespace GEERepository
             StringBuilder sql = new StringBuilder();
             Inscricoes inscricao = new Inscricoes();
 
-            sql.Append("SELECT i.*, p.nome as pessoa, e.nome as evento ");
+            sql.Append("SELECT i.*, p.nome as pessoa, p.cpf as cpf_pessoa, e.nome as evento ");
             sql.Append("FROM inscricoes i ");
             sql.Append("INNER JOIN pessoas p ");
             sql.Append("ON i.id_pessoa=p.id ");
@@ -34,7 +34,8 @@ namespace GEERepository
                 inscricao.id = (int)dr["id"];
                 inscricao.id_pessoa = new Pessoas
                 {
-                    nome = (string)dr["pessoa"]
+                    nome = (string)dr["pessoa"],
+                    cpf = (string)dr["cpf_pessoa"]
                 };
                 inscricao.id_evento = new Eventos
                 {
