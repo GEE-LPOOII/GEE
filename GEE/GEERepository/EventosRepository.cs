@@ -105,11 +105,7 @@ namespace GEERepository
                         data = (DateTime)dr["data"],
                         
                        
-                        id_subarea = new Subareas
-                        {
-                            nome = (string)dr["subarea"],
-                            id_area = (Areas)dr["s.id_area"]
-                        },
+                       
                     });
             }
             return eventos;
@@ -151,11 +147,7 @@ namespace GEERepository
                         {
                             nome = (string)dr["pessoa"]
                         },
-                        id_subarea = new Subareas
-                        {
-                            nome = (string)dr["subarea"],
-                            id_area = (Areas)dr["s.id_area"]
-                        },
+                       
                     });
             }
             return eventos;
@@ -166,7 +158,7 @@ namespace GEERepository
             StringBuilder sql = new StringBuilder();
             MySqlCommand cmd = new MySqlCommand();
 
-            sql.Append("INSERT INTO eventos (nome, descricao, cidade, qtd_horas, data, id_pessoa, id_subarea) ");
+            sql.Append("INSERT INTO eventos (nome, descricao, cidade, qtd_horas, data,  id_subarea) ");
             sql.Append("VALUES(@nome, @descricao, @cidade, @qtd_horas, @data, @id_subarea)");
 
             cmd.Parameters.AddWithValue("@nome", pEventos.nome);

@@ -46,7 +46,7 @@
                            <textarea class="form-control" placeholder="Descrição" name="DescEvento" required></textarea>
                            <br />
                            <label>Subarea</label>
-                           @Html.DropDownListFor(model => model.Subareas.id, ViewBag.Subareas as SelectList, string.Empty, new { @class = "control-label col-md-2" })
+                          @Html.DropDownList("listaSubA", null, "Selecione a Area", new { @class = "form-control" })
                            <br />
                            <input type="submit" class="btn btn-success" value="Salvar" />
                           

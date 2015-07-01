@@ -16,6 +16,6 @@ namespace GEEData
         public DateTime data { get; set; }
         
 	    public Pessoas id_pessoa { get; set; }
-        public Subareas id_subarea { get; set; }
+        public int id_subarea { get; set; }
     }
 }
